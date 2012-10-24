@@ -2711,6 +2711,8 @@ Special rules control the usage of actions in chained rules:
 <pre>
 # Parse requests with Content-Type "text/xml" as XML 
 SecRule REQUEST_CONTENT_TYPE ^text/xml "nolog,pass,id:106,ctl:requestBodyProcessor=XML"
+SecRule REQUEST_URI "@beginsWith /index.php" "phase:1,t:none,pass, \
+  nolog,ctl:ruleRemoveTargetById=981260;ARGS:user
 </pre>
 
 The following configuration options are supported: 
@@ -3915,7 +3917,7 @@ SecRequestBodyNoFilesLimit 131072
 #
 SecRequestBodyInMemoryLimit 131072
 
-# What do do if the request body size is above our configured limit.
+# What to do if the request body size is above our configured limit.
 # Keep in mind that this setting will automatically be set to ProcessPartial
 # when SecRuleEngine is set to DetectionOnly mode in order to minimize
 # disruptions when initially deploying ModSecurity.
@@ -4058,10 +4060,14 @@ SecAuditLogRelevantStatus "^(?:5|4(?!04))"
 SecAuditLogParts ABIJDEFHZ
 
 # Use a single file for logging. This is much easier to look at, but
-# assumes that you will use the audit log only ocassionally.
+# assumes that you will use the audit log only occasionally.
 #
 SecAuditLogType Serial
 SecAuditLog /var/log/modsec_audit.log
+
+# Use concurrent logging
+#SecAuditLogType Concurrent
+#SecAuditLog "|/opt/modsecurity/bin/mlogc /opt/modsecurity/etc/mlogc.conf"
 
 # Specify the path for concurrent audit logging.
 #SecAuditLogStorageDir /opt/modsecurity/var/audit/
@@ -4105,4 +4111,3 @@ While we will continue to enhance ModSecurity to deal with various evasion techn
 #When "magic_quotes_gpc" is set to "On" PHP will use backslash to escape the following characters: single quote, double quote, backslash, and the nul byte.
 #If "magic_quotes_sybase" is set to "On" only the single quote will be escaped using another single quote. In this case the "magic_quotes_gpc" setting becomes irrelevant. The "magic_quotes_sybase" setting completely overrides the "magic_quotes_gpc" behaviour but "magic_quotes_gpc" still must be set to "On" for the Sybase-specific quoting to be work.
 #PHP will also automatically create nested arrays for you. For example "p[x][y]=1" results in a total of three variables.
-
