@@ -3592,7 +3592,7 @@ This operator is the same as @pm, except that it takes a list of files as argume
 # Detect suspicious user agents using the keywords in 
 # the files /path/to/blacklist1 and blacklist2 (the latter 
 # must be placed in the same folder as the configuration file) 
-SecRule REQUEST_HEADERS:User-Agent "@pm /path/to/blacklist1 blacklist2" "id:167"
+SecRule REQUEST_HEADERS:User-Agent "@pmFromFile /path/to/blacklist1 blacklist2" "id:167"
 </pre>
 
 Notes:
