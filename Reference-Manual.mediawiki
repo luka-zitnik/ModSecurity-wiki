@@ -622,12 +622,12 @@ Every rule following a previous <code>SecDefaultAction</code> directive in the s
 
 This directive is necessary in reverse proxy mode when the backend servers support response compression, but you wish to inspect response bodies. Unless you disable backend compression, ModSecurity will only see compressed content, which is not very useful. This directive is not necessary in embedded mode, because ModSecurity performs inspection before response compression takes place.
 
-== SecEncryptionEngine ==
-'''Description:''' Configures the encryption engine. 
+== SecHashEngine ==
+'''Description:''' Configures the hash engine. 
 
-'''Syntax:''' <code>SecEncryptionEngine On|Off</code>
+'''Syntax:''' <code>SecHashEngine On|Off</code>
 
-'''Example Usage:''' <code>SecEncryptionEngine On </code>
+'''Example Usage:''' <code>SecHashEngine On </code>
 
 '''Scope''': Any 
 
@@ -636,67 +636,44 @@ This directive is necessary in reverse proxy mode when the backend servers suppo
 '''Default:''' Off
 
 The possible values are: 
-*'''On''': Encryption engine can process the request/response data.
-*'''Off''': Encryption engine will not process any data. 
+*'''On''': Hash engine can process the request/response data.
+*'''Off''': Hash engine will not process any data. 
 
 ; Note : Users must enable stream output variables and content injection.
 
-== SecEncryptionKey ==
+== SecHashKey ==
 '''Description:''' Define the key that will be used by HMAC. 
 
-'''Syntax:''' <code>SecEncryptionKey rand|TEXT KeyOnly|SessionID|RemoteIP</code>
+'''Syntax:''' <code>SecHashKey rand|TEXT KeyOnly|SessionID|RemoteIP</code>
 
-'''Example Usage:''' <code>SecEncryptionKey "this_is_my_key" KeyOnly</code>
+'''Example Usage:''' <code>SecHashKey "this_is_my_key" KeyOnly</code>
 
 '''Scope''': Any 
 
 '''Version:''' 2.7
 
-ModSecurity encryption engine will append, if specified, the user's session id or remote ip to the key before the MAC operation. If the first parameter is "rand" then a random key will be generated and used by the engine.
+ModSecurity hash engine will append, if specified, the user's session id or remote ip to the key before the MAC operation. If the first parameter is "rand" then a random key will be generated and used by the engine.
 
 
-== SecEncryptionParam ==
+== SecHashParam ==
 '''Description:''' Define the parameter name that will receive the MAC hash. 
 
-'''Syntax:''' <code>SecEncryptionParam TEXT</code>
+'''Syntax:''' <code>SecHashParam TEXT</code>
 
-'''Example Usage:''' <code>SecEncryptionKey "hmac"</code>
+'''Example Usage:''' <code>SecHashKey "hmac"</code>
 
 '''Scope''': Any 
 
 '''Version:''' 2.7
 
-ModSecurity encryption engine will add a new parameter to protected HTML elements containing the MAC hash.
+ModSecurity hash engine will add a new parameter to protected HTML elements containing the MAC hash.
 
-== SecEncryptionMethodRx ==
-'''Description:''' Configures what kind of HTML data the encryption engine should sign based on regular expression.
+== SecHashMethodRx ==
+'''Description:''' Configures what kind of HTML data the hash engine should sign based on regular expression.
 
-'''Syntax:''' <code>SecEncryptionMethodRx TYPE REGEX</code> 
+'''Syntax:''' <code>SecHashMethodRx TYPE REGEX</code> 
 
-'''Example Usage''': <code>SecEncryptionMethodRx HashHref "product_info|list_product"</code>
-
-'''Scope:''' Any
-
-'''Version:''' 2.7.0
-
-As a initial support is possible to protect HREF, FRAME, IFRAME and FORM ACTION html elements as well response Location header when http redirect code are sent.
-
-The possible values for TYPE are:
-*'''HashHref''': Used to sign href= html elements
-*'''HashFormAction''': Used to sign form action= html elements
-*'''HashIframeSrc''': Used to sign iframe src= html elements
-*'''HashframeSrc''': Used to sign frame src= html elements 
-*'''HashLocation''': Used to sign Location response header
-
-; Note : This directive is used to sign the elements however user must use the @validateEncryption operator to enforce data integrity.
-
-
-== SecEncryptionMethodPm ==
-'''Description:''' Configures what kind of HTML data the encryption engine should sign based on string search algoritm.
-
-'''Syntax:''' <code>SecEncryptionMethodRx TYPE "string1 string2 string3..."</code> 
-
-'''Example Usage''': <code>SecEncryptionMethodRx HashHref "product_info list_product"</code>
+'''Example Usage''': <code>SecHashMethodRx HashHref "product_info|list_product"</code>
 
 '''Scope:''' Any
 
@@ -711,7 +688,30 @@ The possible values for TYPE are:
 *'''HashframeSrc''': Used to sign frame src= html elements 
 *'''HashLocation''': Used to sign Location response header
 
-; Note : This directive is used to sign the elements however user must use the @validateEncryption operator to enforce data integrity.
+; Note : This directive is used to sign the elements however user must use the @validateHash operator to enforce data integrity.
+
+
+== SecHashMethodPm ==
+'''Description:''' Configures what kind of HTML data the hash engine should sign based on string search algoritm.
+
+'''Syntax:''' <code>SecHashMethodRx TYPE "string1 string2 string3..."</code> 
+
+'''Example Usage''': <code>SecHashMethodRx HashHref "product_info list_product"</code>
+
+'''Scope:''' Any
+
+'''Version:''' 2.7.0
+
+As a initial support is possible to protect HREF, FRAME, IFRAME and FORM ACTION html elements as well response Location header when http redirect code are sent.
+
+The possible values for TYPE are:
+*'''HashHref''': Used to sign href= html elements
+*'''HashFormAction''': Used to sign form action= html elements
+*'''HashIframeSrc''': Used to sign iframe src= html elements
+*'''HashframeSrc''': Used to sign frame src= html elements 
+*'''HashLocation''': Used to sign Location response header
+
+; Note : This directive is used to sign the elements however user must use the @validateHash operator to enforce data integrity.
 
 == SecGeoLookupDb ==
 '''Description''': Defines the path to the database that will be used for geolocation lookups. 
@@ -2732,8 +2732,8 @@ The following configuration options are supported:
 #'''ruleUpdateTargetById''' - This is deprecated and will be removed from the code. Use ruleRemoveTargetById for per-request exceptions.
 #'''ruleRemoveTargetById''' - since this action is used to just remove targets, users don't need to use the char ! before the target list. 
 #'''ruleRemoveByMsg'''
-#'''encryptionEngine'''
-#'''encryptionEnforcement'''
+#'''hashEngine'''
+#'''hashEnforcement'''
 
 With the exception of the requestBodyProcessor and forceRequestBodyVariable settings, each configuration option corresponds to one configuration directive and the usage is identical.
 
@@ -3737,13 +3737,13 @@ SecRule REQUEST_HEADERS:Content-Type ^text/xml$ "phase:1,id:180,nolog,pass,t:low
 SecRule XML "@validateDTD /path/to/xml.dtd" "phase:2,id:181,deny,msg:'Failed DTD validation'"
 </pre>
 
-== validateEncryption ==
-'''Description:''' Validates REQUEST_URI that contains data protected by the encryption engine.
+== validateHash ==
+'''Description:''' Validates REQUEST_URI that contains data protected by the hash engine.
 
 '''Example:'''
 <pre>
 # Validates requested URI that matches a regular expression.
-SecRule REQUEST_URI "@validateEncryption "product_info|product_list" "phase:1,deny,id:123456"
+SecRule REQUEST_URI "@validatehash "product_info|product_list" "phase:1,deny,id:123456"
 </pre>
 
 == validateSchema ==
