@@ -22,7 +22,7 @@ ModSecurity can also act immediately to prevent attacks from reaching your web a
 A flexible rule engine sits in the heart of ModSecurity. It implements the ModSecurity Rule Language, which is a specialised programming language designed to work with HTTP transaction data. The ModSecurity Rule Language is designed to be easy to use, yet flexible: common operations are simple while complex operations are possible. Certified ModSecurity Rules, included with ModSecurity, contain a comprehensive set of rules that implement general-purpose hardening, protocol validation and detection of common web application security issues. Heavily commented, these rules can be used as a learning tool.
 
 == Embedded-mode Deployment == 
-ModSecurity is an embeddable web application firewall, which means it can be deployed as part of your existing web server infrastructure provided your web servers are Apache-based. This deployment method has certain advantages:
+ModSecurity is an embeddable web application firewall, which means it can be deployed as part of your existing web server infrastructure provided your web servers are either Apache, IIS7 or Nginx. This deployment method has certain advantages:
 
 #No changes to existing network. It only takes a few minutes to add ModSecurity to your existing web servers. And because it was designed to be completely passive by default, you are free to deploy it incrementally and only use the features you need. It is equally easy to remove or deactivate it if required.
 #No single point of failure. Unlike with network-based deployments, you will not be introducing a new point of failure to your system.
@@ -31,7 +31,7 @@ ModSecurity is an embeddable web application firewall, which means it can be dep
 #No problem with encrypted or compressed content. Many IDS systems have difficulties analysing SSL traffic. This is not a problem for ModSecurity because it is positioned to work when the traffic is decrypted and decompressed.
 
 == Network-based Deployment == 
-ModSecurity works equally well when deployed as part of an Apache-based reverse proxy server, and many of our customers choose to do so. In this scenario, one installation of ModSecurity can protect any number of web servers (even the non-Apache ones).
+ModSecurity works equally well when deployed as part of a reverse proxy server, and many of our customers choose to do so. In this scenario, one installation of ModSecurity can protect any number of back-end web servers.
 
 == Portability == 
 ModSecurity is known to work well on a wide range of operating systems. Our customers are successfully running it on Linux, Windows, Solaris, FreeBSD, OpenBSD, NetBSD, AIX, Mac OS X, and HP-UX.
