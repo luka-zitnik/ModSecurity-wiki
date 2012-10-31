@@ -631,7 +631,7 @@ This directive is necessary in reverse proxy mode when the backend servers suppo
 
 '''Scope''': Any 
 
-'''Version:''' 2.7
+'''Version:''' 2.7.1
 
 '''Default:''' Off
 
@@ -650,7 +650,7 @@ The possible values are:
 
 '''Scope''': Any 
 
-'''Version:''' 2.7
+'''Version:''' 2.7.1
 
 ModSecurity hash engine will append, if specified, the user's session id or remote ip to the key before the MAC operation. If the first parameter is "rand" then a random key will be generated and used by the engine.
 
@@ -664,7 +664,7 @@ ModSecurity hash engine will append, if specified, the user's session id or remo
 
 '''Scope''': Any 
 
-'''Version:''' 2.7
+'''Version:''' 2.7.1
 
 ModSecurity hash engine will add a new parameter to protected HTML elements containing the MAC hash.
 
@@ -677,7 +677,7 @@ ModSecurity hash engine will add a new parameter to protected HTML elements cont
 
 '''Scope:''' Any
 
-'''Version:''' 2.7.0
+'''Version:''' 2.7.1
 
 As a initial support is possible to protect HREF, FRAME, IFRAME and FORM ACTION html elements as well response Location header when http redirect code are sent.
 
@@ -700,7 +700,7 @@ The possible values for TYPE are:
 
 '''Scope:''' Any
 
-'''Version:''' 2.7.0
+'''Version:''' 2.7.1
 
 As a initial support is possible to protect HREF, FRAME, IFRAME and FORM ACTION html elements as well response Location header when http redirect code are sent.
 
