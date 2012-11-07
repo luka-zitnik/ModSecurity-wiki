@@ -3516,6 +3516,8 @@ end
 *Full IPv6 Address - 2001:db8:85a3:8d3:1319:8a2e:370:7348
 *Network Block/CIDR Address - 2001:db8:85a3:8d3:1319:8a2e:370:0/24
 
+'''Version:''' 2.7
+
 '''Examples:'''
 
 Individual Address:
@@ -3529,6 +3531,8 @@ SecRule REMOTE_ADDR "@ipMatch 192.168.1.100,192.168.1.50,10.10.50.0/24" "id:162"
 
 == ipMatchF ==
 short alias for ipMatchFromFile
+
+'''Version:''' 2.7
 
 == ipMatchFromFile ==
 '''Description:''' Performs a fast ipv4 or ipv6 match of REMOTE_ADDR variable, loading data from a file.  Can handle the following formats:
