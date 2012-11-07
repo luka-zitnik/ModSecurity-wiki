@@ -3541,6 +3541,8 @@ short alias for ipMatchFromFile
 *Full IPv6 Address - 2001:db8:85a3:8d3:1319:8a2e:370:7348
 *Network Block/CIDR Address - 2001:db8:85a3:8d3:1319:8a2e:370:0/24
 
+'''Version:''' 2.7
+
 '''Examples:'''
 
 <pre>
