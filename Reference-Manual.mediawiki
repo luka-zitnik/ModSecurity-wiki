@@ -195,7 +195,7 @@ The first step in obtaining nginx server with built-in ModSecurity module is bui
 The last command performs server installation on the local machine, which can be either customized or omitted with built binaries packaged or moved to alternative server.
 === Configuration Steps ===
 The ModSecurity configuration file must be linked in nginx.conf file using the following directives defined by nginx’s ModSecurity extension module:
-
+<pre>
 location / {
            ModSecurityEnabled on;
            ModSecurityConfig modsecurity.conf;
@@ -206,16 +206,19 @@ location @backend {
            proxy_pass http://localhost:8011;
            proxy_read_timeout 180s;
        }
+</pre>
 This configures ModSecurity as an Nginx request handler. The updated request flow is now:
 request -> modsecurity handler -> backend
 You will need to modify the @backend definition to point to your correct back-end web application that Nginx is proxying to.
 Starting with ModSecurity 2.7.2 the ModSecurityPass option was removed. So the config file looks like:
+<pre>
 location / {
            ModSecurityEnabled on;
            ModSecurityConfig modsecurity.conf;
            proxy_pass http://localhost:8011;
            proxy_read_timeout 180s
        }
+</pre>
 = Installation for Microsoft IIS =
 The source code of ModSecurity’s IIS components is fully published and the binary building process is described (see mod_security/iis/winbuild/howto.txt). For quick installation it is highly recommended to use standard MSI installer available from SourceForge files repository of ModSecurity project or use binary package and follow the manual installation steps.
 == Manually Installing and Troubleshooting Setup of ModSecurity Module on IIS ==
