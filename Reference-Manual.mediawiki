@@ -221,6 +221,13 @@ location / {
 </pre>
 = Installation for Microsoft IIS =
 The source code of ModSecurity’s IIS components is fully published and the binary building process is described (see mod_security/iis/winbuild/howto.txt). For quick installation it is highly recommended to use standard MSI installer available from SourceForge files repository of ModSecurity project or use binary package and follow the manual installation steps.
+
+Any installation errors or warning messages are logged in the application event log under 'ModSecurityIIS Installer' source.
+
+The OWASP CRS is also installed on the system drive, under inetpub\wwwroot\owasp_crs.
+It can be included in any website by adding the following line to the web.config file, in system.webServer section:
+        <ModSecurity enabled="true" configFile="c:\inetpub\wwwroot\owasp_crs\modsecurity_iis.conf" />
+(relative path can also be used accordingly)
 == Manually Installing and Troubleshooting Setup of ModSecurity Module on IIS ==
 === Prerequisites ===
 Before installing ModSecurity one has to install Visual Studio 2010 Runtime:
