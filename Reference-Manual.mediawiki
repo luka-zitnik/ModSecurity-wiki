@@ -183,7 +183,7 @@ The first step in obtaining nginx server with built-in ModSecurity module is bui
 1 - Compile standalone module:
 <pre>
 ~/mod_security$ ./configure --enable-standalone-module
-~/mod_security$ make
+~/mod_security$ make && make install
 </pre>
 
 2 - Once the standalone library is built successfully, one can follow with building the nginx server, following the steps from the nginx build tutorial:
