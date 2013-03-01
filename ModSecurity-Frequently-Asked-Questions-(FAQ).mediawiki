@@ -188,7 +188,7 @@ Unfortunately, no. The Core Rules takes advantage of the ModSecurity 2.0 rules l
 
 == How do I whitelist an IP address so it can pass through ModSecurity? ==
 
-The first issue to realize is that in ModSecurity 2.0, the allow action i sonly applied to the current phase. This means that if a rule matches in a subsequent phase it may still take a disruptive action. The recommended rule configuration to allow a remote IP address to bypass ModSecurity rules is to do the following (where 192.168.1.100 should be substituted with the desired IP address):
+The first issue to realize is that in ModSecurity 2.0, the allow action is only applied to the current phase. This means that if a rule matches in a subsequent phase it may still take a disruptive action. The recommended rule configuration to allow a remote IP address to bypass ModSecurity rules is to do the following (where 192.168.1.100 should be substituted with the desired IP address):
 
 SecRule REMOTE_ADDR "^192\.168\.1\100$" phase:1,nolog,allow,ctl:ruleEngine=Off
 
