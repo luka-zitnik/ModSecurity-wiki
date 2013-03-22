@@ -1691,7 +1691,7 @@ In the two examples configurations shown, SecWebAppId is being used in conjuncti
 
 '''Syntax:''' <code>SecXmlExternalEntity On|Off </code>
 
-'''Example Usage:''' <code>SecWebAppId Off </code>
+'''Example Usage:''' <code>SecXmlExternalEntity Off </code>
 
 '''Scope:''' Any 
 
