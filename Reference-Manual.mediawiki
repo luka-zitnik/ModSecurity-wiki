@@ -537,6 +537,17 @@ The best way to use SecChrootDir is the following:
 
 You should be aware that the internal chroot feature might not be 100% reliable. Due to the large number of default and third-party modules available for the Apache web server, it is not possible to verify the internal chroot works reliably with all of them. A module, working from within Apache, can do things that make it easy to break out of the jail. In particular, if you are using any of the modules that fork in the module initialisation phase (e.g., mod_fastcgi, mod_fcgid, mod_cgid), you are advised to examine each Apache process and observe its current working directory, process root, and the list of open files. Consider what your options are and make your own decision.
 
+== SecCollectionTimeout ==
+'''Description:''' Specifies the collections timeout. Default is 3600 seconds.
+
+'''Syntax:''' <code>SecCollectionTimeout seconds</code>
+
+'''Default:''' 3600 
+
+'''Scope:''' Any
+
+'''Version:''' 2.6.3
+
 == SecComponentSignature ==
 '''Description:''' Appends component signature to the ModSecurity signature. 
 
@@ -1675,18 +1686,18 @@ SecWebAppId "App2" ...
 </pre>
 In the two examples configurations shown, SecWebAppId is being used in conjunction with the Apache VirtualHost directives. Applications namespace information is also recorded in the audit logs (using the WebApp-Info header of the H part).
 
-This directive is used to set collections timeout. For example:
-<pre>SecCollectionTimeout 500</pre>
-== SecCollectionTimeout ==
-'''Description:''' Specifies the collections timeout. Default is 3600 seconds.
+== SecXmlExternalEntity ==
+'''Description:''' Enable or Disable the loading process of xml external entity. Loading external entity without correct verifying process can lead to a security issue.
 
-'''Syntax:''' <code>SecCollectionTimeout seconds</code>
+'''Syntax:''' <code>SecXmlExternalEntity On|Off </code>
 
-'''Default:''' 3600 
+'''Example Usage:''' <code>SecWebAppId Off </code>
 
-'''Scope:''' Any
+'''Scope:''' Any 
 
-'''Version:''' 2.6.3
+'''Version:''' 2.7.3 
+
+'''Default:''' default is Off
 
 = Processing Phases =
 ModSecurity 2.x allows rules to be placed in one of the following five phases of the Apache request cycle:
