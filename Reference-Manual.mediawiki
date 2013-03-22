@@ -174,6 +174,20 @@ You should now have ModSecurity 2.x up and running.
 #'''--enable-pcre-jit''' - Enables JIT support from pcre >= 8.20 that can improve regex performance.
 #'''--enable-lua-cache''' - Enables lua vm caching that can improve lua script performance. Difference just appears if ModSecurity must run more than one script per transaction.
 #'''--enable-request-early''' - On ModSecuricy 2.6 phase one has been moved to phase 2 hook, if you want to play around it use this option.
+#'''--enable-htaccess-config''' - It will allow the follow directives to be used into .htaccess files when AllowOverride Options is set :
+<pre>
+        - SecAction
+        - SecRule
+
+        - SecRuleRemoveByMsg
+        - SecRuleRemoveByTag
+        - SecRuleRemoveById
+
+        - SecRuleUpdateActionById
+        - SecRuleUpdateTargetById
+        - SecRuleUpdateTargetByTag
+        - SecRuleUpdateTargetByMsg
+</pre>
 
 = Installation for NGINX =
 The extensibility model of the nginx server does not include dynamically loaded modules, thus ModSecurity must be compiled with the source code of the main server.  Since nginx is available on multiple Unix-based platforms (and also on Windows), for now the recommended way of obtaining ModSecurity for nginx is compilation in the designated environment.
