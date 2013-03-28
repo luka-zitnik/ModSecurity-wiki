@@ -90,23 +90,21 @@ Before you begin with installation you will need to choose your preferred instal
 
 The following few pages will give you more information on benefits of choosing one method over another.
 
-== SVN Access ==
+== GitHub Access ==
 
-If you want to access the latest version of the module you need to get it from the svn repository. The list of changes made since the last stable release is normally available on the web site (and in the file CHANGES). The SVN repository for ModSecurity is hosted by SourceForge (http://www.sf.net). You can access it directly or view if through web using this address: http://mod-security.svn.sourceforge.net/viewvc/mod-security/ 
+If you want to access the latest version of the module you need to get it from the git repository. The list of changes made since the last stable release is normally available on the web site (and in the file CHANGES). The git repository for ModSecurity is hosted by GitHub (http://www.github.com). You can access it directly or view if through web using this address: https://github.com/SpiderLabs/ModSecurity
 
 To download the lastest TRUNK source code to your computer you need to execute the following command:
 
 '''git'''
 <pre>
-$git svn clone --prefix=svn/ https://mod-security.svn.sourceforge.net/svnroot/mod-security/m2/trunk
-</pre>
-'''svn'''
-<pre>
-svn co https://mod-security.svn.sourceforge.net/svnroot/mod-security/m2/trunk modsecurity
+$git clone git://github.com/SpiderLabs/ModSecurity.git
+$git checkout remotes/trunk
 </pre>
 
+
 For v2.6.0 and above, the installation process has changed.  Follow these steps:
-#cd into the directory - <code>$cd modsecurity</code>
+#cd into the directory - <code>$cd ModSecurity</code>
 #Run autogen.sh script - <code>$./autogen.sh</code>
 #Run configure script - <code>$./configure</code>
 #Run make - <code>$make</code>
