@@ -654,7 +654,7 @@ The possible values for the debug log level are:
 
 '''Syntax:''' <code>SecDefaultAction "action1,action2,action3“ </code>
 
-'''Example Usage:''' <code>SecDefaultAction "phase:2,log,auditlog,deny,status:403“ </code>
+'''Example Usage:''' <code>SecDefaultAction "phase:2,log,auditlog,deny,status:403,tag:'SLA 24/7'“ </code>
 
 '''Scope:''' Any 
 
