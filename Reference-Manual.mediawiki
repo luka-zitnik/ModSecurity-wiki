@@ -1403,6 +1403,15 @@ SecRule REQUEST_FILENAME|ARGS_NAMES|ARGS|XML:/*|!ARGS:email "[\;\|\`]\W*?\bmail\
      "phase:2,rev:'2.1.1',capture,t:none,t:htmlEntityDecode,t:compressWhitespace,t:lowercase,ctl:auditLogParts=+E,block,msg:'System Command Injection',id:'958895',tag:'WEB_ATTACK/COMMAND_INJECTION',tag:'WASCTC/WASC-31',tag:'OWASP_TOP_10/A1',tag:'PCI/6.5.2',logdata:'%{TX.0}',severity:'2',setvar:'tx.msg=%{rule.msg}',setvar:tx.anomaly_score=+%{tx.critical_anomaly_score},setvar:tx.command_injection_score=+%{tx.critical_anomaly_score},setvar:tx.%{rule.id}-WEB_ATTACK/COMMAND_INJECTION-%{matched_var_name}=%
 {tx.0}""
 </pre>
+
+Note that is is also possible to use regular expressions in the target specification:
+
+<pre>
+SecRuleUpdateTargetById 981172 "!REQUEST_COOKIES:/^appl1_.*/"
+</pre>
+
+
+
 '''Explicitly Replacing Targets'''
 
 You can also entirely replace the target list to something more appropriate for your environment.  For example, lets say you want to inspect REQUEST_URI instead of REQUEST_FILENAME, you could do this:
