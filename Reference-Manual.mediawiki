@@ -3617,7 +3617,7 @@ short alias for ipMatchFromFile
 '''Examples:'''
 
 <pre>
-SecRule REMOTE_ADDR "@ipMatch ips.txt" "id:163"
+SecRule REMOTE_ADDR "@ipMatchFromFile ips.txt" "id:163"
 </pre>
 
 The file ips.txt may contain:
