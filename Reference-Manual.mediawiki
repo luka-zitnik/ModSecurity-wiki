@@ -3952,6 +3952,17 @@ To create a collection to hold session variables (SESSION) use action setsid. To
 ; Note : ModSecurity uses a Berkley Database (SDBM) for persistant storage. This type of database is generally limited to storing a maximum of 1008 bytes per key. This may be a limitation if you are attempting to store a considerable amount of data in variables for a single key. Some of this limitation is planned to be reduced in a future version of ModSecurity.
 
 = Miscellaneous Topics =
+
+== Logging in Apache via mod_log_config ==
+
+The ModSecurity variables are accessible from Apache's mod_log_config (-> Apache Access Log). The entries take the form %{VARIABLE}M. Apache writes these logs at the very end of a transaction after the record in the ModSecurity audit log has been written. It is thus possible to log variables, that are only defined after the writing of the audit Log.
+
+Examples Apache mod_log_config:
+<pre>
+LogFormat "%t %{UNIQUE_ID}e %{MULTIPART_STRICT_ERROR}M %{TX.ANOMALY_SCORE}M" custom-format
+</pre>
+
+
 = A Recommended Base Configuration =
 The following is a recommended configuration file which handles the main ModSecurity directives/setting and is taken from the modsecurity.conf-recommended file in the ModSecurity source code archive.  These are the items that the Admin should handle and configure for their own site.  These settings should not be including within 3rd party rules files.
 
