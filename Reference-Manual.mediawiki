@@ -2261,6 +2261,9 @@ SCRIPT_USERNAME "^apache$" "id:66"
 
 ; Note : Not available in proxy mode.
 
+== SDBM_DELETE_ERROR ==
+This variable is set to 1 when APR fails to delete SDBM entries.
+
 == SERVER_ADDR ==
 This variable contains the IP address of the server.
 
@@ -3429,6 +3432,15 @@ Would match on - <br>
 
 But not on - <br>
 Your site has a wide '''select'''ion of computers.
+
+== detectSQLi == 
+'''Description:''' Returns true if SQL injection payload is found. This operator uses LibInjection to detect SQLi attacks.
+
+'''Example:'''
+<pre>
+# Detect SQL Injection inside request uri data" 
+SecRule REQUEST_URI "@detectSQLi" "id:152"
+</pre>
 
 == endsWith == 
 '''Description:''' Returns true if the parameter string is found at the end of the input. Macro expansion is performed on the parameter string before comparison.
