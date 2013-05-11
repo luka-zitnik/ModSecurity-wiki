@@ -229,7 +229,7 @@ location / {
            ModSecurityEnabled on;
            ModSecurityConfig modsecurity.conf;
            proxy_pass http://localhost:8011;
-           proxy_read_timeout 180s
+           proxy_read_timeout 180s;
        }
 </pre>
 = Installation for Microsoft IIS =
