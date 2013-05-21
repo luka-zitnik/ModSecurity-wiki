@@ -3939,7 +3939,7 @@ Format:
 %{VARIABLE}
 %{COLLECTION.VARIABLE}
 </pre>
-Macro expansion can be used in actions such as initcol, setsid, setuid, setvar, setenv, logdata. Operators that are evaluated at runtime support expansion and are noted above. Such operators include @beginsWith, @endsWith, @contains, @within and @streq. You cannot use macro expansion for operators that are "compiled" such as @pm, @rx, etc. as these operators have their values fixed at configure time for efficiency.
+Macro expansion can be used in actions such as initcol, setsid, setuid, setvar, setenv, logdata. Operators that are evaluated at runtime support expansion and are noted above. Such operators include @beginsWith, @endsWith, @contains, @within and @streq. You can use macro expansion for operators that are "compiled" such @rx, etc. however you will have some impact in efficiency.
 
 Some values you may want to expand include: TX, REMOTE_ADDR, USERID, HIGHEST_SEVERITY, MATCHED_VAR, MATCHED_VAR_NAME, MULTIPART_STRICT_ERROR, RULE, SESSION, USERID, among others.
 
