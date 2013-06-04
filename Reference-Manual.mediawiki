@@ -3533,7 +3533,7 @@ The OWASP ModSecurity Core Rule Set (CRS) includes a utility script in the /util
 $CLAMSCAN = "clamscan";
 
 if ($#ARGV != 0) {
-    print "Usage: modsec-clamscan.pl <filename>\n";
+    print "Usage: runav.pl <filename>\n";
     exit;
 }
 
