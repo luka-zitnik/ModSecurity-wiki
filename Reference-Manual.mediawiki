@@ -1207,7 +1207,7 @@ The possible values are:
 *'''DetectionOnly''': process rules but never executes any disruptive actions (block, deny, drop, allow, proxy and redirect)
 
 == SecRulePerfTime ==
-'''Description:''' Set a performance threshold for rules. Rules that spends too much time will be logged into audit log Part H in the format id=usec. 
+'''Description:''' Set a performance threshold for rules. Rules that spend at least the time defined will be logged into audit log Part H as Rules-Performance-Info in the format id=usec, comma separated. 
 
 '''Syntax:''' <code>SecRulePerfTime USECS </code>
 
