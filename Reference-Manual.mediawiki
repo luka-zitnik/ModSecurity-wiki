@@ -717,7 +717,7 @@ ModSecurity hash engine will append, if specified, the user's session id or remo
 
 '''Syntax:''' <code>SecHashParam TEXT</code>
 
-'''Example Usage:''' <code>SecHashKey "hmac"</code>
+'''Example Usage:''' <code>SecHashParam "hmac"</code>
 
 '''Scope''': Any 
 
