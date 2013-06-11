@@ -1217,6 +1217,8 @@ The possible values are:
 
 '''Version:''' 2.7 
 
+The rules hitting the threshold can be accessed via the collection PERF_RULES.
+
 == SecRuleRemoveById ==
 '''Description:''' Removes the matching rules from the current configuration context. 
 
