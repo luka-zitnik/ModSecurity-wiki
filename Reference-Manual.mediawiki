@@ -2024,9 +2024,39 @@ Contains the time, in microseconds, spent processing phase 4. Available starting
 Contains the time, in microseconds, spent processing phase 5. Available starting with 2.6.
 
 == PERF_RULES ==
-Contains the time of rules, in microseconds. Available starting with 2.7.
+PERF_RULES is a collection, that is populated with the rules hitting
+the performance threshold defined with SecRulePerfTime. The collection
+contains the time, in microseconds, spent processing the individual
+rule. The various items in the collection can be accessed via the
+rule id.
 
-<code>SecRule PERF_RULES "@gt 1000" "id:12345,phase:5"</code>
+Available starting with 2.7.
+
+<pre>
+SecRulePerfTime            100
+
+SecRule FILES_TMPNAMES "@inspectFile /path/to/util/runav.pl" \
+  "phase:2,id:10001,deny,log,msg:'Virus scan detected an error.'"
+
+SecRule   &PERF_RULES "@eq 0"    "phase:5,id:95000,\
+  pass,log,msg:'All rules performed below processing time limit.'"
+SecRule   PERF_RULES  "@ge 1000" "phase:5,id:95001,pass,log,\
+  msg:'Rule %{MATCHED_VAR_NAME} spent at least 1000 usec.'"
+SecAction "phase:5,id:95002,pass,log, msg:'File inspection took %{PERF_RULES.10001} usec.'"
+</pre>
+
+The rule with id 10001 defines an external file inspection rule.
+The rule with id 95000 checks the size of the PERF_RULES collection.
+If the collection is empty, it writes a note in the logfile.
+Rule 95001 is executed for every item in the PERF_RULES collection.
+Every item is thus being checked against the limit of 1000 microseconds.
+If the rule spent at least that amount of time, then a note containing
+the rule id is being written to the logfile.
+The final rule 95002 notes the time spent in rule 10001 (the virus
+inspection).
+
+
+
 
 == PERF_SREAD ==
 Contains the time, in microseconds, spent reading from persistent storage. Available starting with 2.6.
