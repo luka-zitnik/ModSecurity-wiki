@@ -603,6 +603,15 @@ The possible values are:
 *'''0''': Use version 0 (Netscape) cookies. This is what most applications use. It is the default value.
 *'''1''': Use version 1 cookies.
 
+== SecCookieV0Separator ==
+'''Description:''' Specifies which character to use as the separator for cookie v0 content.
+
+'''Syntax:''' <code>SecCookieV0Separator character</code>
+
+'''Scope:''' Any
+
+'''Version:''' 2.7.0
+
 == SecDataDir ==
 '''Description:''' Path where persistent data (e.g., IP address data, session data, and so on) is to be stored.
 
