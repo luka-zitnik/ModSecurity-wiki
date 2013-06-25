@@ -2831,7 +2831,6 @@ The following configuration options are supported:
 #'''responseBodyLimit'''
 #'''ruleEngine'''
 #'''ruleRemoveById''' - since this action us triggered at run time, it should be specified '''before''' the rule in which it is disabling.
-#'''ruleUpdateTargetById''' - This is deprecated and will be removed from the code. Use ruleRemoveTargetById for per-request exceptions.
 #'''ruleRemoveTargetById''' - since this action is used to just remove targets, users don't need to use the char ! before the target list. 
 #'''ruleRemoveByMsg'''
 #'''hashEngine'''
@@ -2843,6 +2842,8 @@ The requestBodyProcessor option allows you to configure the request body process
 
 Request body processors will not interrupt a transaction if an error occurs during parsing. Instead, they will set the variables REQBODY_PROCESSOR_ERROR and REQBODY_PROCESSOR_ERROR_MSG. These variables should be inspected in the REQUEST_BODY phase and an appropriate action taken.
 The forceRequestBodyVariable option allows you to configure the REQUEST_BODY variable to be set when there is no request body processor configured. This allows for inspection of request bodies of unknown types.
+
+; Note : There was a ctl:ruleUpdateTargetById introduced in 2.6.0 and removed from the code in 2.7.0.
 
 == deny ==
 '''Description:''' Stops rule processing and intercepts transaction.
