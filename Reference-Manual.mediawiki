@@ -1439,19 +1439,8 @@ SecRule REQUEST_URI|ARGS_NAMES|ARGS|XML:/* "[\;\|\`]\W*?\bmail\b" \
      "phase:2,rev:'2.1.1',capture,t:none,t:htmlEntityDecode,t:compressWhitespace,t:lowercase,ctl:auditLogParts=+E,block,msg:'System Command Injection',id:'958895',tag:'WEB_ATTACK/COMMAND_INJECTION',tag:'WASCTC/WASC-31',tag:'OWASP_TOP_10/A1',tag:'PCI/6.5.2',logdata:'%{TX.0}',severity:'2',setvar:'tx.msg=%{rule.msg}',setvar:tx.anomaly_score=+%{tx.critical_anomaly_score},setvar:tx.command_injection_score=+%{tx.critical_anomaly_score},setvar:tx.%{rule.id}-WEB_ATTACK/COMMAND_INJECTION-%{matched_var_name}=%
 {tx.0}""
 </pre>
-'''Conditionally Appending Targets'''
 
-You could also do the same by using the ctl action.  This is useful if you want to only update the targets for a particular URL
-<pre>
-SecRule REQUEST_FILENAME "@streq /path/to/file.php" "phase:1,id:2,t:none,nolog,pass,ctl:ruleUpdateTargetById=958895;!ARGS:email"
-</pre>
-
-'''Conditionally Replacing Targets'''
-
-You could also replace targets using the ctl action.  For example, lets say you want to only inspect ARGS for a particular URL:
-<pre>
-SecRule REQUEST_FILENAME "@streq /path/to/file.php" "phase:1,id:3,t:none,nolog,pass,ctl:ruleUpdateTargetById=958895;REQUEST_URI;REQUEST_FILENAME"
-</pre>
+; Note : You could also do the same by using the ctl action with the ruleRemoveById directive. That would be useful if you want to only update the targets for a particular URL, thus conditionally appending targets.
 
 == SecRuleUpdateTargetByMsg ==
 '''Description:''' Updates the target (variable) list of the specified rule by rule message.
