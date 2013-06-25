@@ -1453,8 +1453,6 @@ You could also replace targets using the ctl action.  For example, lets say you 
 SecRule REQUEST_FILENAME "@streq /path/to/file.php" "phase:1,id:3,t:none,nolog,pass,ctl:ruleUpdateTargetById=958895;REQUEST_URI;REQUEST_FILENAME"
 </pre>
 
-; Note : This ctl is deprecated and will be removed from the code, since we cannot use it per-transaction. Please use the new ruleRemoveTargetById ctl option if you want to remove a target or target list per-transaction.
-
 == SecRuleUpdateTargetByMsg ==
 '''Description:''' Updates the target (variable) list of the specified rule by rule message.
 
