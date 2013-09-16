@@ -2831,9 +2831,11 @@ The following configuration options are supported:
 #'''responseBodyLimit'''
 #'''ruleEngine'''
 #'''ruleRemoveById''' - since this action us triggered at run time, it should be specified '''before''' the rule in which it is disabling.
-#'''ruleRemoveTargetById''' - since this action is used to just remove targets, users don't need to use the char ! before the target list. 
-#'''ruleRemoveTargetByTag''' - since this action is used to just remove targets, users don't need to use the char ! before the target list. 
 #'''ruleRemoveByMsg'''
+#'''ruleRemoveByTag'''
+#'''ruleRemoveTargetById''' - since this action is used to just remove targets, users don't need to use the char ! before the target list. 
+#'''ruleRemoveTargetByMsg''' - since this action is used to just remove targets, users don't need to use the char ! before the target list. 
+#'''ruleRemoveTargetByTag''' - since this action is used to just remove targets, users don't need to use the char ! before the target list.
 #'''hashEngine'''
 #'''hashEnforcement'''
 
