@@ -1718,6 +1718,8 @@ In the two examples configurations shown, SecWebAppId is being used in conjuncti
 
 '''Default:''' default is Off
 
+'''NOTE:''' You must enable this directive if you need to use the <code>@validateSchema</code> or <code>@validateDtd</code> operators.
+
 = Processing Phases =
 ModSecurity 2.x allows rules to be placed in one of the following five phases of the Apache request cycle:
 *Request headers (REQUEST_HEADERS)
@@ -3859,6 +3861,8 @@ SecRule REQUEST_HEADERS:Content-Type ^text/xml$ "phase:1,id:180,nolog,pass,t:low
 SecRule XML "@validateDTD /path/to/xml.dtd" "phase:2,id:181,deny,msg:'Failed DTD validation'"
 </pre>
 
+'''NOTE:''' You must enable the <code>SecXmlExternalEntity</code> directive.
+
 == validateHash ==
 '''Description:''' Validates REQUEST_URI that contains data protected by the hash engine.
 
@@ -3879,6 +3883,8 @@ SecRule REQUEST_HEADERS:Content-Type ^text/xml$ "phase:1,id:190,nolog,pass,t:low
 # Validate XML payload against DTD 
 SecRule XML "@validateSchema /path/to/xml.xsd" "phase:2,id:191,deny,msg:'Failed DTD validation'"
 </pre>
+
+'''NOTE:''' You must enable the <code>SecXmlExternalEntity</code> directive.
 
 == validateUrlEncoding ==
 '''Description''': Validates the URL-encoded characters in the provided input string.
