@@ -573,6 +573,22 @@ You should be aware that the internal chroot feature might not be 100% reliable.
 
 This directive should be used to make the presence of significant rule sets known. The entire signature will be recorded in the transaction audit log.
 
+== SecConnEngine ==
+'''Description:''' Configures the connections engine. 
+
+'''Syntax:''' <code>SecConnEngine On|Off|DetectionOnly </code>
+
+'''Example Usage:''' <code>SecConnEngine On </code>
+
+'''Scope:''' Any
+
+'''Version:''' 2.7.6
+
+Analog to SecRuleEngine, the possible values are: 
+*'''On''': process rules, quietly.
+*'''Off''': do not process rules.
+*'''DetectionOnly''': process rules in verbose mode but never executes any disruptive actions
+
 == SecContentInjection ==
 '''Description:''' Enables content injection using actions append and prepend. 
 
@@ -985,11 +1001,26 @@ The only reason you would want to change the name of the token is if you wanted 
 
 '''Scope''': Main 
 
-'''Version''': 2.5.13 
+'''Version''': 2.5.13, DEPRECATED as of v2.7.6.
 
 '''Default:''' 0 (no limit)
 
-This measure is effective against Slowloris-style attacks from a single IP address, but it may not be as good against modified attacks that work by slowly sending request body content. This is because Apache to switches state to SERVER_BUSY_WRITE once request headers have been read. As an alternative, consider mod_reqtimeout (part of Apache as of 2.2.15), which is expected be effective against both attack types.  See Blog post on mitigating slow DoS attacks - http://blog.spiderlabs.com/2010/11/advanced-topic-of-the-week-mitigating-slow-http-dos-attacks.html
+For v2.7.6 or newest refer to SecConnReadStateLimit.
+
+== SecConnReadStateLimit ==
+'''Description:''' Establishes a per-IP address limit of how many connections are allowed to be in SERVER_BUSY_READ state. 
+
+'''Syntax:''' <code>SecReadStateLimit LIMIT OPTIONAL_IP_MATCH_OPERATOR</code>
+
+'''Example Usage''': <code>SecReadStateLimit 50 "!@ipMatch 127.0.0.1"</code>
+
+'''Scope''': Main 
+
+'''Version''': v2.7.6 
+
+'''Default:''' 0 (no limit)
+
+This measure is effective against Slowloris-style attacks from a single IP address, but it may not be as good against modified attacks that work by slowly sending request body content. This is because Apache to switches state to SERVER_BUSY_WRITE once request headers have been read. As an alternative, consider mod_reqtimeout (part of Apache as of 2.2.15), which is expected be effective against both attack types.  See Blog post on mitigating slow DoS attacks - http://blog.spiderlabs.com/2010/11/advanced-topic-of-the-week-mitigating-slow-http-dos-attacks.html. v2.7.6 and newest supports the @ipMatch, @ipMatchF and @ipMatchFromFile operator along with the its negative (e.g. !@ipMatch) these were used to create suspicious or whitelist. When a suspicious list is informed, just the IPs that belongs to the list will be filtered. A combination of suspicious and whitelist is possible by using multiple definitions of SecConnReadStateLimit, note, however, that the limit will be always overwrite by its successor.
 
 == SecSensorId ==
 '''Description:''' Define a sensor ID that will be present into log part H. 
@@ -1011,11 +1042,26 @@ This measure is effective against Slowloris-style attacks from a single IP addre
 
 '''Scope''': Main 
 
+'''Version''': 2.6.0, DEPRECATED as of v2.7.6.
+
+'''Default:''' 0 (no limit)
+
+For v2.7.6 or newest refer to SecConnWriteStateLimit.
+
+== SecConnWriteStateLimit ==
+'''Description:''' Establishes a per-IP address limit of how many connections are allowed to be in SERVER_BUSY_WRITE state. 
+
+'''Syntax:''' <code>SecWriteStateLimit LIMIT OPTIONAL_IP_MATCH_OPERATOR</code>
+
+'''Example Usage''': <code>SecWriteStateLimit 50 "!ipMatch 127.0.0.1"</code>
+
+'''Scope''': Main 
+
 '''Version''': 2.6.0 
 
 '''Default:''' 0 (no limit)
 
-This measure is effective against Slow DoS request body attacks.
+This measure is effective against Slow DoS request body attacks. v2.7.6 and newest supports the @ipMatch, @ipMatchF and @ipMatchFromFile operator along with the its negative (e.g. !@ipMatch) these were used to create suspicious or whitelist. When a suspicious list is informed, just the IPs that belongs to the list will be filtered. A combination of suspicious and whitelist is possible by using multiple definitions of SecConnReadStateLimit, note, however, that the limit will be always overwrite by its successor.
 
 == SecRequestBodyAccess ==
 '''Description''': Configures whether request bodies will be buffered and processed by ModSecurity.
