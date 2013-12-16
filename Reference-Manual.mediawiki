@@ -233,50 +233,20 @@ location / {
        }
 </pre>
 = Installation for Microsoft IIS =
-The source code of ModSecurity’s IIS components is fully published and the binary building process is described (see mod_security/iis/winbuild/howto.txt). For quick installation it is highly recommended to use standard MSI installer available from SourceForge files repository of ModSecurity project or use binary package and follow the manual installation steps.
+Before installing ModSecurity make sure you have Visual Studio 2013 Runtime (vcredist) installed.
+Vcredist can be downloaded here: http://www.visualstudio.com/downloads/download-visual-studio-vs
+(note that, there are two different versions 32 and 64b).
+
+The source code of ModSecurity’s IIS components is fully published and the binary building process is described (see README_WINDOWS.TXT). For quick installation it is highly recommended to use standard MSI installer available from SourceForge files repository of ModSecurity project or use binary package and follow the manual installation steps.
 
 Any installation errors or warning messages are logged in the application event log under 'ModSecurityIIS Installer' source.
 
-The OWASP CRS is also installed on the system drive, under inetpub\wwwroot\owasp_crs.
+The OWASP CRS is also installed on the system drive, on the selected folder.
 It can be included in any website by adding the following line to the web.config file, in system.webServer section:
-        <ModSecurity enabled="true" configFile="c:\inetpub\wwwroot\owasp_crs\modsecurity_iis.conf" />
+        <ModSecurity enabled="true" configFile="c:\path\to\owasp_crs\modsecurity_iis.conf" />
 (relative path can also be used accordingly)
 == Manually Installing and Troubleshooting Setup of ModSecurity Module on IIS ==
-=== Prerequisites ===
-Before installing ModSecurity one has to install Visual Studio 2010 Runtime:
-*32-bit OS: http://www.microsoft.com/en-us/download/details.aspx?id=5555
-*64-bit OS: http://www.microsoft.com/en-us/download/details.aspx?id=14632
-=== Installation Steps ===
-Download binary package and unzip the content to a separate folder:
-*http://sourceforge.net/projects/mod-security/files/modsecurity-iis/2.7.0-rc2/ModSecurityIIS_2.7.0-rc2_debug.zip/download
-: The installation process of ModSecurity module on IIS consists of three parts:
-<br>
-:'''1. Copying of binaries: copyfiles.bat'''
-: The following binary files are required by ModSecurity module and by default should be copied to %windir%\system32\ (32-bit binaries) and/or %windir%\SysWOW64\ (64-bit binaries):
-*libapr-1.dll
-*libapriconv-1.dll
-*libaprutil-1.dll
-*libxml2.dll
-*lua5.1.dll
-*ModSecurityIIS.dll
-*pcre.dll
-*zlib1.dll
-: The mlogc tool can be copied to any place, together with libcurl.dll:
-*libcurl.dll
-*mlogc.exe
-<br>
-:'''2. Registering of the module: register.bat'''
-: An IIS module must be properly registered before it can be used by web applications. The following command, executed in %windir%\system32\inetsrv, performs the registration:
-<pre>appcmd.exe install module /name:ModSecurityIIS /image:%windir%\system32\inetsrv\modsecurityiis.dll</pre>
-: The registration process itself is described with details in the following articles:
-*http://technet.microsoft.com/en-us/library/cc771133(v=ws.10)
-*http://learn.iis.net/page.aspx/121/iis-modules-overview/
-<br>
-:'''3. Extending of the configuration schema.'''
-: The last step extends IIS configuration schema with ModSecurity entities, using ModSecurity.xml file provided in the binary:
-<pre>iisschema.exe /install ModSecurity.xml</pre>
-: and iisschema.exe tool. More information about the tool and this step is available here:
-*http://mvolo.com/iisschemaexe-a-tool-to-register-iis7-configuration-sections
+
 === Configuration ===
 : After the installation the module will be running in all websites by default. To remove it from a website add to web.config:
 <pre><modules>
