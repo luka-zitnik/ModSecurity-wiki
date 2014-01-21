@@ -1563,6 +1563,32 @@ SecRule REQUEST_URI|ARGS_NAMES|ARGS|XML:/* "[\;\|\`]\W*?\bmail\b" \
 
 In order for this directive to work, you must set the Apache ServerTokens directive to Full. ModSecurity will overwrite the server signature data held in this memory space with the data set in this directive. If ServerTokens is not set to Full, then the memory space is most likely not large enough to hold the new data we are looking to insert.
 
+== SecStatusEngine ==
+'''Description:''' Contribute or not to ModSecurity's usage statistics.
+
+'''Syntax:''' <code>SecStatusEngine On|Off</code>
+
+'''Example Usage:''' <code>SecStatusEngine On</code>
+
+'''Scope:''' Any
+
+'''Version:''' Under testing at the branch: https://github.com/SpiderLabs/ModSecurity/tree/modsec_status
+
+'''Default:''' Off
+
+If SecStatusEngine is marked as On, the following information will be shared when ModSecurity is started:
+
+* Anonymous unique id
+* Version of
+** ModSecurity
+** Web Server
+** APR
+** PCRE
+** Lua
+** Libxml2
+
+This information is sent via DNS query.
+
 == SecStreamInBodyInspection ==
 '''Description:''' Configures the ability to use stream inspection for inbound request data in a re-allocable buffer. For security reasons we are still buffering the stream. 
 
