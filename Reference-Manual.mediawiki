@@ -1579,13 +1579,13 @@ In order for this directive to work, you must set the Apache ServerTokens direct
 If SecStatusEngine is marked as On, the following information will be shared when ModSecurity is started:
 
 * Anonymous unique id
-* Version of
-** ModSecurity
-** Web Server
+* Version of:
 ** APR
-** PCRE
-** Lua
 ** Libxml2
+** Lua
+** ModSecurity
+** PCRE
+** Web Server
 
 This information is sent via DNS query.
 
