@@ -1564,7 +1564,7 @@ SecRule REQUEST_URI|ARGS_NAMES|ARGS|XML:/* "[\;\|\`]\W*?\bmail\b" \
 In order for this directive to work, you must set the Apache ServerTokens directive to Full. ModSecurity will overwrite the server signature data held in this memory space with the data set in this directive. If ServerTokens is not set to Full, then the memory space is most likely not large enough to hold the new data we are looking to insert.
 
 == SecStatusEngine ==
-'''Description:''' Contribute or not to ModSecurity's usage statistics.
+'''Description:''' Controls Status Reporting functionality.  Uses DNS-based reporting to send software version information to the ModSecurity Project team.
 
 '''Syntax:''' <code>SecStatusEngine On|Off</code>
 
@@ -1576,18 +1576,22 @@ In order for this directive to work, you must set the Apache ServerTokens direct
 
 '''Default:''' Off
 
-If SecStatusEngine is marked as On, the following information will be shared when ModSecurity is started:
+If SecStatusEngine directive is not present, it is disabled.  If SecStatusEngine is marked as On, the following information will be shared with the ModSecurity project team when the web server is started:
 
-* Anonymous unique id
+* Anonymous unique id for the server
 * Version of:
+** ModSecurity
+** Web Server Software (Apache, IIS, Nginx, Java)
 ** APR
 ** Libxml2
 ** Lua
-** ModSecurity
 ** PCRE
-** Web Server
 
-This information is sent via DNS query.
+; Note : This is an example of the information presented in the Apache error_log representing what data will be sent:
+<pre>
+[Mon Jan 20 10:55:22.001020 2014] [:notice] [pid 18231:tid 140735189168512] ModSecurity: StatusEngine call: "2.7.7,Apache/2.4.4 (Unix),1.4.6/1.4.6, 8.32 /8.32 2012-11-30,Lua 5.1/(null),2.7.8/(null),96ce9ba3c2fb71f7a8bb92a88d560d44dbe459b8"
+[Mon Jan 20 10:55:22.089012 2014] [:notice] [pid 18231:tid 140735189168512] ModSecurity: StatusEngine call successfully submitted.
+</pre>
 
 == SecStreamInBodyInspection ==
 '''Description:''' Configures the ability to use stream inspection for inbound request data in a re-allocable buffer. For security reasons we are still buffering the stream. 
@@ -1637,11 +1641,11 @@ This feature enables the creation of the STREAM_OUTPUT_BODY variable and is usef
 The location specified needs to be writable by the Apache user process. This is the directory location where ModSecurity will swap data to disk if it runs out of memory (more data than what was specified in the SecRequestBodyInMemoryLimit directive) during inspection.
 
 == SecUnicodeMapFile ==
-'''Description:''' Defines the path to the file that will be used by the urlDecodeUni transformation function to map Unicode code points during normalization.
+'''Description:''' Defines the path to the file that will be used by the urlDecodeUni transformation function to map Unicode code points during normalization and specifies the Code Point to use.
 
-'''Syntax:''' <code>SecUnicodeMapFile /path/to/unicode.mapping</code>
+'''Syntax:''' <code>SecUnicodeMapFile /path/to/unicode.mapping CODEPOINT</code>
 
-'''Example Usage:''' <code>SecUnicodeMapFile /usr/local/apache/conf/crs/unicode.mapping</code>
+'''Example Usage:''' <code>SecUnicodeMapFile unicode.mapping 20127</code>
 
 '''Scope:''' Any
 
@@ -1656,7 +1660,7 @@ The location specified needs to be writable by the Apache user process. This is 
 
 '''Scope:''' Any
 
-'''Version:''' 2.6.1
+'''Version:''' 2.6.1 - DEPRECATED
 
 == SecUploadDir ==
 '''Description:''' Configures the directory where intercepted files will be stored.
