@@ -15,7 +15,7 @@ same folder of the installer. There should be valuable information to identify p
 
 ## Broken Uninstall
 
-This should not happens to regular users, but, developers playing around the installer may be in a situation that the uninstall process is broken and he is now able to uninstall ModSecurity or even install a new version. In that situation we recommend the utilization of _Microsoft FixIt_ to force the removal of the package. Keep in mind that file may be left behind. Manual check is necessary after the forced removal.
+This should not happens to regular users, but, developers playing around the installer may be in a situation that the uninstall process is broken and he is not able to uninstall ModSecurity or even install a newest version. In that situation we recommend the utilization of _Microsoft FixIt_ to force the removal of the package. Keep in mind that file may be left behind. Manual check is necessary after the forced removal.
 
 In order to use the _Microsoft FixIt_ visit the website: [http://support.microsoft.com/mats/program_install_and_uninstall](http://support.microsoft.com/mats/program_install_and_uninstall)
 
