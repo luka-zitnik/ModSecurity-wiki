@@ -746,9 +746,9 @@ The possible values for TYPE are:
 == SecHashMethodPm ==
 '''Description:''' Configures what kind of HTML data the hash engine should sign based on string search algoritm.
 
-'''Syntax:''' <code>SecHashMethodRx TYPE "string1 string2 string3..."</code> 
+'''Syntax:''' <code>SecHashMethodPm TYPE "string1 string2 string3..."</code> 
 
-'''Example Usage''': <code>SecHashMethodRx HashHref "product_info list_product"</code>
+'''Example Usage''': <code>SecHashMethodPm HashHref "product_info list_product"</code>
 
 '''Scope:''' Any
 
