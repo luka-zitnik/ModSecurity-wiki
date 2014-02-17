@@ -3523,6 +3523,17 @@ Your site has a wide '''select'''ion of computers.
 SecRule REQUEST_URI "@detectSQLi" "id:152"
 </pre>
 
+== detectXSS == 
+'''Description:''' Returns true if XSS injection is found. This operator uses LibInjection to detect XSS attacks.
+
+'''Version:''' This functionality is under testing. Currently the code is hosted under the branch: [https://github.com/SpiderLabs/ModSecurity/tree/libinject_detect_xss libinject_detect_xss].
+
+'''Example:'''
+<pre>
+# Detect XSS Injection inside request body 
+SecRule REQUEST_BODY "\@detectXSS" "id:12345,log,deny"
+</pre>
+
 == endsWith == 
 '''Description:''' Returns true if the parameter string is found at the end of the input. Macro expansion is performed on the parameter string before comparison.
 
