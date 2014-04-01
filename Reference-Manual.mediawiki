@@ -1,5 +1,5 @@
 = ModSecurity&reg; Reference Manual =
-== Current as of v2.5.13 v2.6 and v2.7 ==
+== Current as of v2.5.13 v2.6 v2.7 v2.8 ==
 === Copyright &copy; 2004-2014 [https://www.trustwave.com/ Trustwave Holdings, Inc.] ===
 
 = Table of Contents =
