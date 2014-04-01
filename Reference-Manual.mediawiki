@@ -2155,7 +2155,7 @@ This variable holds the username of the authenticated user. If there are no pass
 ; Note : In a reverse-proxy deployment, this information will not be available if the authentication is handled in the backend web server.
 
 == REQBODY_ERROR ==
-Contains the status of the request body processor used for request body parsing. The values can be 0 (no error) or 1 (error). This variable will be set by request body processors (typically the multipart/request-data parser or the XML parser) when they fail to do their work.
+Contains the status of the request body processor used for request body parsing. The values can be 0 (no error) or 1 (error). This variable will be set by request body processors (typically the multipart/request-data parser, JSON or the XML parser) when they fail to do their work.
 
 <code>SecRule REQBODY_ERROR "@eq 1" deny,phase:2,id:39 </code>
 
