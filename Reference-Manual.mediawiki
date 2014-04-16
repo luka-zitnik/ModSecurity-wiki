@@ -1912,14 +1912,14 @@ The last available only if SecRequestBodyAccess was set to On. Note that all pro
 
 <code>SecRule FULL_REQUEST "User-Agent: ModSecurity Regression Tests" "id:21"</code>
 
-Note: This variable is no part of our stable release yet. It is under test. The code can be find at: https://github.com/SpiderLabs/ModSecurity/tree/var_full_request
+; Note : Available on version 2.8.0+
 
 == FULL_REQUEST_LENGTH == 
 Represents the amount of bytes that FULL_REQUEST may use. 
 
 <code>SecRule FULL_REQUEST_LENGTH "@eq 205" "id:21"</code>
 
-Note: This variable is no part of our stable release yet. It is under test. The code can be find at: https://github.com/SpiderLabs/ModSecurity/tree/var_full_request
+; Note : Available on version 2.8.0+
 
 == FILES_SIZES == 
 Contains a list of individual file sizes. Useful for implementing a size limitation on individual uploaded files. Available only on inspected multipart/form-data requests.
