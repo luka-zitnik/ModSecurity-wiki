@@ -3541,7 +3541,7 @@ SecRule REQUEST_URI "@detectSQLi" "id:152"
 == detectXSS == 
 '''Description:''' Returns true if XSS injection is found. This operator uses LibInjection to detect XSS attacks.
 
-'''Version:''' This functionality is under testing. Currently the code is hosted under the branch: [https://github.com/SpiderLabs/ModSecurity/tree/libinject_detect_xss libinject_detect_xss].
+'''Version:''' 2.8.0
 
 '''Example:'''
 <pre>
