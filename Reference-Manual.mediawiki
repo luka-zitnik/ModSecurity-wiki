@@ -659,7 +659,7 @@ The possible values for the debug log level are:
 
 Every rule following a previous <code>SecDefaultAction</code> directive in the same configuration context will inherit its settings unless more specific actions are used. Every <code>SecDefaultAction</code> directive must specify a disruptive action and a processing phase and cannot contain metadata actions.
 
-; Warning : <code>SecDefaultAction</code> is not inherited across configuration contexts. (For an example of why this may be a problem, read the following ModSecurity Blog entry http://blog.spiderlabs.com/2008/07/three-modsecurity-rule-language-annoyances.html.)
+; Warning : <code>SecDefaultAction</code> is not inherited across configuration contexts. (For an example of why this may be a problem, read the following ModSecurity Blog entry http://blog.spiderlabs.com/2008/07/three-modsecurity-rule-language-annoyances.html .)
 
 == SecDisableBackendCompression ==
 '''Description:''' Disables backend compression while leaving the frontend compression enabled. 
