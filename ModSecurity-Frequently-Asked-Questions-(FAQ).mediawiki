@@ -1,4 +1,4 @@
-= ModSecurity Frequently Asked Questions (FAQ) (Last Updated - August 28, 2014)
+= ModSecurity Frequently Asked Questions (FAQ) (Last Updated - August 28, 2014) =
 == Who Leads the ModSecurity Project? ==
 ModSecurity is supported by Trustwave's SpiderLabs Team [https://www.trustwave.com/spiderLabs.php] and includes the following team members:
 *Ryan Barnett - ModSecurity Project Lead and OWASP ModSecurity Core Rule Set Project Lead
