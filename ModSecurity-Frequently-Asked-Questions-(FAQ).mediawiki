@@ -1,12 +1,8 @@
-= ModSecurity Frequently Asked Questions (FAQ) =
-Version 3.0 / (March 1, 2011)
+= ModSecurity Frequently Asked Questions (FAQ) (Last Updated - August 28, 2014)
 == Who Leads the ModSecurity Project? ==
 ModSecurity is supported by Trustwave's SpiderLabs Team [https://www.trustwave.com/spiderLabs.php] and includes the following team members:
 *Ryan Barnett - ModSecurity Project Lead and OWASP ModSecurity Core Rule Set Project Lead
-*Breno Silva - ModSecurity Lead Developer
-*Brian Bebeau - ModSecurity Developer
-*Rodrigo Montoro - ModSecurity Rules/Signature Developer
-*Steve Ocepek - SpiderLabs Research Team Lead
+*Felipe Zimmerle Costa - ModSecurity Lead Developer
 
 Suggestions for enhancements of this document are always welcome. Please email them to the Mod-Security-Users mailing list [http://lists.sourceforge.net/lists/listinfo/mod-security-users].
 
@@ -18,7 +14,17 @@ ModSecurity™is an open source, free web application firewall (WAF) Apache modu
 
 == Where do I get more help on ModSecurity? ==
 
-The ModSecurity website is the definitive location for all documentation - http://www.modsecurity.org/ Other good resources are available in the source distribution, including the ModSecurity Reference Manual on the Documentation page - http://www.modsecurity.org/documentation/. There is also a excellent mailing list, mod-security-users. You can find info on how to signup at http://lists.sourceforge.net/lists/listinfo/mod-security-users. You can also join the #modsecurity channel on irc.freenode.net.
+The ModSecurity website is the definitive location for all information - http://www.modsecurity.org/help.html. 
+
+=== Open Source/Free Help ===
+*ModSecurity Users Mail-list (SourceForge) - http://lists.sourceforge.net/lists/listinfo/mod-security-users
+*ModSecurity Developers Mail-list (SourceForge) - http://lists.sourceforge.net/lists/listinfo/mod-security-developers
+*OWASP ModSecurity Core Rules Mail-list (OWASP) - https://lists.owasp.org/mailman/listinfo/owasp-modsecurity-core-rule-set 
+*You can also join the #modsecurity channel on irc.freenode.net.
+=== Commercial Help ===
+*Commercial Support through Trustwave's Technical Assistance Center (TAC) - https://www3.trustwave.com/modsecurity-rules-support.php
+*Professional Services offer by Trustwave SpiderLabs Research Team
+*ModSecurity Training
 
 == Do I need to sign up for the Mod-User Mail-list before I can send emails? ==
 
@@ -28,20 +34,14 @@ Yes, only subscribers are able to post messages. As mentioned in the previous se
 
 Yes. There is a good chance that the issue you are facing has already been discussed and, most likely, a fix has already been presented. You can review the mail-list archive online at the ModSecurity project site on SourceForge. You can also use the Search interface available for topic threads that are archived to the various mirror sites. For example, if you had a question about Exceptions and ModSecurity, you could use the following search to find past mail-list threads on this topic. If you can not find an answer to your question after doing some research, you should then send an email to the mod-security-users mail-list.
 
-== Where can I find books about Web Application Firewalls and ModSecurity? ==
+== Will I always get an immediate answer to my question on the open source mod-security-users mail-list? ==
 
-Books
+The open source mod-security-users mail-list is "best effort" support meaning that we will aspire to respond to emails as quickly as possible however the actual response time may vary depending on factors such as time of day, time of week and complexity of the question. If your email is sent on the week-end or if your question involves setting up test systems, unique configurations or interactions with a custom application then it may take some time to respond.
 
-ModSecurity Handbook is "The definitive guide to the popular open source web application firewall", written by Ivan Ristic (original author of ModSecurity). The book is available from Feisty Duck in hard copy or with immediate access to the digital version which is continually updated.
+== If I don't get an immediate response, should I send an email to the Trustwave Technical Support email address? ==
 
+No. The Trustwave Technical Support email address is for commercial ModSecurity customers only.
 
-ModSecurity 2.5 is "A complete guide to using ModSecurity", written by Magnus Mischel. The book is available from Packt Publishing in both hard copy and digital forms.
-
-
-Apache Security is a comprehensive Apache Security resource, written by Ivan Ristic for O'Reilly. Two chapters (Apache Installation and Configuration and PHP) are available as free download, as are the Apache security tools created for the book.
-
-
-Preventing Web Attacks with Apache. Building on his groundbreaking SANS presentations on Apache security, Ryan C. Barnett reveals why your Web servers represent such a compelling target, how significant exploits are performed, and how they can be defended against.
 
 Training
 Trustwave's SpiderLabs offers a variety of web application security training options include open source ModSecurity rule writing classes. Please use this contact form for more information. Ask about:
@@ -50,13 +50,22 @@ ModSecurity: Deployment and Management
 ModSecurity: Rules Writing Workshop
 ModSecurity: Virtual Patching Workshop
 
-== Will I always get an immediate answer to my question on the open source mod-security-users mail-list? ==
+== Where can I find books about Web Application Firewalls and ModSecurity? ==
 
-The open source mod-security-users mail-list is "best effort" support meaning that we will aspire to respond to emails as quickly as possible however the actual response time may vary depending on factors such as time of day, time of week and complexity of the question. If your email is sent on the week-end or if your question involves setting up test systems, unique configurations or interactions with a custom application then it may take some time to respond.
+=== ModSecurity Handbook ===
+ModSecurity Handbook is "The definitive guide to the popular open source web application firewall", written by Ivan Ristic (original author of ModSecurity). The book is available from Feisty Duck in hard copy or with immediate access to the digital version which is continually updated.
 
-== If I don't get an immediate response, should I send an email to the Trustwave Technical Support email address? ==
+=== Web Application Defender's Cookbook: Battling Hackers and Defending Users ===
+The Web Application Defender's Cookbook: Battling Hackers and Protecting Users is a book written by the ModSecurity Project Lead and OWASP ModSecurity Project Lead Ryan Barnett. The book outlines critical defensive techniques to protect web applications and includes example ModSecurity rules/scripts.
 
-No. The Trustwave Technical Support email address is for commercial ModSecurity customers only.
+=== ModSecurity 2.5 ===
+ModSecurity 2.5 is "A complete guide to using ModSecurity", written by Magnus Mischel. The book is available from Packt Publishing in both hard copy and digital forms.
+
+=== Apache Security ===
+Apache Security is a comprehensive Apache Security resource, written by Ivan Ristic for O'Reilly. Two chapters (Apache Installation and Configuration and PHP) are available as free download, as are the Apache security tools created for the book.
+
+=== Preventing Web Attacks with Apache ===
+Preventing Web Attacks with Apache. Building on his groundbreaking SANS presentations on Apache security, Ryan C. Barnett reveals why your Web servers represent such a compelling target, how significant exploits are performed, and how they can be defended against.
 
 = Getting Started =
 
@@ -170,15 +179,11 @@ Using ModSecurity requires rules. In order to enable users to take full advantag
 
 In order to provide generic web applications protection, the Core Rules use the following techniques:
 
-HTTP protection - detecting violations of the HTTP protocol and a locally defined usage policy.
-
-Common Web Attacks Protection - detecting common web application security attack.
-
-Automation detection - Detecting bots, crawlers, scanners and other surface malicious activity.
-
-Trojan Protection - Detecting access to Trojans horses.
-
-Errors Hiding – Disguising error messages sent by the server
+*HTTP protection - detecting violations of the HTTP protocol and a locally defined usage policy.
+*Common Web Attacks Protection - detecting common web application security attack.
+*Automation detection - Detecting bots, crawlers, scanners and other surface malicious activity.
+*Trojan Protection - Detecting access to Trojans horses.
+*Errors Hiding – Disguising error messages sent by the server
 
 In addition the ruleset also hints at the power of ModSecurity beyond providing security by reporting access from the major search engines to your site.
 
@@ -190,15 +195,15 @@ Unfortunately, no. The Core Rules takes advantage of the ModSecurity 2.0 rules l
 
 The first issue to realize is that in ModSecurity 2.0, the allow action is only applied to the current phase. This means that if a rule matches in a subsequent phase it may still take a disruptive action. The recommended rule configuration to allow a remote IP address to bypass ModSecurity rules is to do the following (where 192.168.1.100 should be substituted with the desired IP address):
 
-SecRule REMOTE_ADDR "^192\.168\.1\100$" phase:1,nolog,allow,ctl:ruleEngine=Off
+SecRule REMOTE_ADDR "@ipMatch 192.168.110" phase:1,nolog,allow,ctl:ruleEngine=Off
 
 If you want to allow uninterrupted access to the remote IP address, however you still want to log rule alerts, then you can use this rule -
 
-SecRule REMOTE_ADDR "^192\.168\.1\100$" phase:1,nolog,allow,ctl:ruleEngine=DetectionOnly
+SecRule REMOTE_ADDR "@ipMatch 192.168.110" phase:1,nolog,allow,ctl:ruleEngine=DetectionOnly
 
 If you want to disable both the rule and audit engines, then you can optionally add another ctl action:
 
-SecRule REMOTE_ADDR "^192\.168\.1\100$" phase:1,nolog,allow,ctl:ruleEngine=Off,ctl:auditEngine=Off
+SecRule REMOTE_ADDR "@ipMatch 192.168.110" phase:1,nolog,allow,ctl:ruleEngine=Off,ctl:auditEngine=Off
 
 == Are there rule differences for identify missing/empty variables between ModSecurity 1.x and 2.x? ==
 
@@ -221,7 +226,7 @@ Yes. Each and every rule that you implement will consume resources (RAM, CPU, et
 
 Fixing identified vulnerabilities in web applications always requires time. Organizations often do not have access to a commercial application's source code and are at the vendor's mercy while waiting for a patch. Even if they have access to the code, implementing a patch in development takes time. This leaves a window of opportunity for the attacker to exploit. External patching (also called "just-in-time patching" and "virtual patching") is one of the biggest advantages of web application firewalls as they can fix this problem externally. A fix for a specific vulnerability is usually very easy to design and in most cases it can be done in less than 15 minutes.
 
-Trustwave's new 360 Application Security Program includes virtual patching services delivered by SpiderLabs.
+https://www.owasp.org/index.php/Virtual_Patching_Cheat_Sheet
 
 = Managing Alerts =
 
