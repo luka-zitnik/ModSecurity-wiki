@@ -2998,7 +2998,8 @@ These are the reserved ranges:
 *600,000-699,999: reserved for use by Akamai [http://www.akamai.com/html/solutions/waf.html]
 *700,000–799,999: reserved for Ivan Ristic
 *900,000–999,999: reserved for the OWASP ModSecurity Core Rule Set [http://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project] project
-*1,000,000-1,999,999: unused (available for reservation)
+*1,000,000-1,009,999: reserved for rules published by Redhat Security Team
+*1,010,000-1,999,999: unused (available for reservation)
 *2,000,000-2,999,999: reserved for rules from Trustwave's SpiderLabs Research team
 *3,000,000-3,999,999: reserved for use by Akamai [http://www.akamai.com/html/solutions/waf.html]
 *4,000,000 and above: unused (available for reservation)
