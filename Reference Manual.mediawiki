@@ -1032,6 +1032,41 @@ For v2.8.0 or newest refer to SecConnWriteStateLimit.
 
 This measure is effective against Slow DoS request body attacks. v2.8.0 and newest supports the @ipMatch, @ipMatchF and @ipMatchFromFile operator along with the its negative (e.g. !@ipMatch) these were used to create suspicious or whitelist. When a suspicious list is informed, just the IPs that belongs to the list will be filtered. A combination of suspicious and whitelist is possible by using multiple definitions of SecConnReadStateLimit, note, however, that the limit will be always overwrite by its successor.
 
+== SecRemoteRules ==
+'''Description''': Load rules from a given file hosted on a HTTPS site.
+
+'''Syntax:''' <code>SecRemoteRules [crypto] key https://url </code>
+
+'''Example Usage''': <code>SecRemoteRules some-key https://www.yourserver.com/plain-text-rules.txt</code>
+
+'''Scope:''' Any 
+
+'''Version:''' 2.9.0-RC1+
+
+This is an optional directive that allow the user to load rules from a remote server. Notice that besides the URL the user also needs to supply a key, which could be used by the target server to provide different content for different keys. 
+
+Along with the key, supplied by the users, ModSecurity will also send its Unique ID and the `status call' in the format of headers to the target web server. The following headers are used:
+ - ModSec-status
+ - ModSec-unique-id
+ - ModSec-key
+
+The optional option "crypto" tells ModSecurity to expect some encrypted content from server. The utilization of SecRemoteRules is only allowed over TLS, thus, this option may not be necessary.
+
+; Note : A valid and trusted digital certificate is expected on the end server. It is also expected that the server uses TLS, preferable TLS 1.2. 
+
+== SecRemoteRulesFailAction ==
+'''Description''': Action that will be taken if SecRemoteRules specify an URL that ModSecurity was not able to download.
+
+'''Syntax:''' <code>SecRemoteRulesFailAction Abort|Warn </code>
+
+'''Example Usage''': <code>SecRemoteRulesFailAction Abort</code>
+
+'''Scope:''' Any 
+
+'''Version:''' 2.9.0-RC1+
+
+The default action is to Abort whenever there is a problem downloading a given URL.
+
 == SecRequestBodyAccess ==
 '''Description''': Configures whether request bodies will be buffered and processed by ModSecurity.
 
@@ -1929,6 +1964,15 @@ Contains a list of individual file sizes. Useful for implementing a size limitat
 Contains a list of temporary files’ names on the disk. Useful when used together with @inspectFile. Available only on inspected multipart/form-data requests.
 
 <code>SecRule FILES_TMPNAMES "@inspectFile /path/to/inspect_script.pl" "id:21"</code>
+
+== FILES_TMP_CONTENT == 
+Contains a key-value set where value is the content of the file which was uploaded.
+Useful when used together with @fuzzyHash.
+
+<code>SecRule FILES_TMP_CONTENT "@fuzzyHash $ENV{CONF_DIR}/ssdeep.txt 1" "id:192372,log,deny"</code>
+
+; Note : Available on version 2.9.0-RC1+
+; Note II : SecUploadKeepFiles should be set to 'On' in order to have this collection filled.
 
 == GEO == 
 GEO is a collection populated by the results of the last @geoLookup operator. The collection can be used to match geographical fields looked from an IP address or hostname.
@@ -3561,9 +3605,9 @@ SecRule REQUEST_LINE "!@endsWith HTTP/1.1" "id:152"
 == fuzzyHash == 
 '''Description:''' The fuzzyHash operator uses the ssdeep, which is a program for computing context triggered piecewise hashes (CTPH). Also called fuzzy hashes, CTPH can match inputs that have homologies. Such inputs have sequences of identical bytes in the same order, although bytes in between these sequences may be different in both content and length.
 
-For further information on ssdeeep, visit its site: http://ssdeep.sourceforge.net/
+For further information on ssdeep, visit its site: http://ssdeep.sourceforge.net/
 
-'''Version:''' Will be part of ModSecurity v2.8.1. Currently in development branches.
+'''Version:''' v2.9.0-RC1+
 
 '''Example:'''
 <pre>
@@ -3758,6 +3802,8 @@ The file ips.txt may contain:
 10.0.0.0/8
 </pre>
 
+; Note : As of v2.9.0-RC1 this operator also supports to load content served by an HTTPS server.
+
 == le ==
 '''Description:''' Performs numerical comparison and returns true if the input value is less than or equal to the operator parameter. Macro expansion is performed on the parameter string before comparison.
 
@@ -3832,6 +3878,8 @@ The file blacklist.txt may contain:
 
 
 ; Note : Starting on ModSecurity v2.6.0 this operator supports a snort/suricata content style. ie: "A|42|C|44|F".
+
+; Note II : As of v2.9.0-RC1 this operator also supports to load content served by an HTTPS server. However, only one url can be used at a time.
 
 == rbl ==
 '''Description:''' Looks up the input value in the RBL (real-time block list) given as parameter. The parameter can be an IPv4 address or a hostname.
