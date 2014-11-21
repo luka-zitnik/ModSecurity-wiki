@@ -985,11 +985,13 @@ For v2.8.0 or newest refer to SecConnReadStateLimit.
 
 '''Scope''': Main 
 
-'''Version''': v2.8.0 
+'''Version''': v2.8.0 (Apache only)
 
 '''Default:''' 0 (no limit)
 
 This measure is effective against Slowloris-style attacks from a single IP address, but it may not be as good against modified attacks that work by slowly sending request body content. This is because Apache to switches state to SERVER_BUSY_WRITE once request headers have been read. As an alternative, consider mod_reqtimeout (part of Apache as of 2.2.15), which is expected be effective against both attack types.  See Blog post on mitigating slow DoS attacks - http://blog.spiderlabs.com/2010/11/advanced-topic-of-the-week-mitigating-slow-http-dos-attacks.html. v2.8.0 and newest supports the @ipMatch, @ipMatchF and @ipMatchFromFile operator along with the its negative (e.g. !@ipMatch) these were used to create suspicious or whitelist. When a suspicious list is informed, just the IPs that belongs to the list will be filtered. A combination of suspicious and whitelist is possible by using multiple definitions of SecConnReadStateLimit, note, however, that the limit will be always overwrite by its successor.
+
+'''Note:''' This functionality is Apache only.
 
 == SecSensorId ==
 '''Description:''' Define a sensor ID that will be present into log part H. 
@@ -1026,11 +1028,13 @@ For v2.8.0 or newest refer to SecConnWriteStateLimit.
 
 '''Scope''': Main 
 
-'''Version''': 2.6.0 
+'''Version''': 2.6.0 (Apache only)
 
 '''Default:''' 0 (no limit)
 
 This measure is effective against Slow DoS request body attacks. v2.8.0 and newest supports the @ipMatch, @ipMatchF and @ipMatchFromFile operator along with the its negative (e.g. !@ipMatch) these were used to create suspicious or whitelist. When a suspicious list is informed, just the IPs that belongs to the list will be filtered. A combination of suspicious and whitelist is possible by using multiple definitions of SecConnReadStateLimit, note, however, that the limit will be always overwrite by its successor.
+
+'''Note:''' This functionality is Apache only.
 
 == SecRemoteRules ==
 '''Description''': Load rules from a given file hosted on a HTTPS site.
