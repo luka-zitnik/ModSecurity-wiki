@@ -1022,9 +1022,9 @@ For v2.8.0 or newest refer to SecConnWriteStateLimit.
 == SecConnWriteStateLimit ==
 '''Description:''' Establishes a per-IP address limit of how many connections are allowed to be in SERVER_BUSY_WRITE state. 
 
-'''Syntax:''' <code>SecWriteStateLimit LIMIT OPTIONAL_IP_MATCH_OPERATOR</code>
+'''Syntax:''' <code>SecConnWriteStateLimit LIMIT OPTIONAL_IP_MATCH_OPERATOR</code>
 
-'''Example Usage''': <code>SecWriteStateLimit 50 "!ipMatch 127.0.0.1"</code>
+'''Example Usage''': <code>SecConnWriteStateLimit 50 "!ipMatch 127.0.0.1"</code>
 
 '''Scope''': Main 
 
