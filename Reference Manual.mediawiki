@@ -979,9 +979,9 @@ For v2.8.0 or newest refer to SecConnReadStateLimit.
 == SecConnReadStateLimit ==
 '''Description:''' Establishes a per-IP address limit of how many connections are allowed to be in SERVER_BUSY_READ state. 
 
-'''Syntax:''' <code>SecReadStateLimit LIMIT OPTIONAL_IP_MATCH_OPERATOR</code>
+'''Syntax:''' <code>SecConnReadStateLimit LIMIT OPTIONAL_IP_MATCH_OPERATOR</code>
 
-'''Example Usage''': <code>SecReadStateLimit 50 "!@ipMatch 127.0.0.1"</code>
+'''Example Usage''': <code>SecConnReadStateLimit 50 "!@ipMatch 127.0.0.1"</code>
 
 '''Scope''': Main 
 
