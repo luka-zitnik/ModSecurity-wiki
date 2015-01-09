@@ -3425,8 +3425,16 @@ tag:'PCI/6.5.2',logdata:'%{TX.0}',severity:'2',setvar:'tx.msg=%{rule.msg}',setva
 setvar:tx.anomaly_score=+%{tx.critical_anomaly_score},setvar:tx.%{rule.id}-WEB_ATTACK/SQL_INJECTION-%{matched_var_name}=%{tx.0}"
 </pre>
 
-; Note : When used in a chain this action will be execute when an individual rule matches and not the entire chain.
-
+; Note : When used in a chain this action will be executed when an individual rule matches and not the entire chain.This means that 
+```
+SecRule REQUEST_FILENAME "@contains /test.php" "chain,id:7,phase:1,t:none,nolog,setvar:tx.auth_attempt=+1" 
+    SecRule ARGS_POST:action "@streq login" "t:none"
+```
+; will increment every time that test.php is visited (regardless of the parameters submitted). If the desired goal is to set the variable only if the entire rule matches, it should be included in the last rule of the chain . For instance: 
+```
+SecRule REQUEST_FILENAME "@streq test.php" "chain,id:7,phase:1,t:none,nolog"
+    SecRule ARGS_POST:action "@streq login" "t:none,setvar:tx.auth_attempt=+1"
+```
 == skip ==
 '''Description:''' Skips one or more rules (or chains) on successful match.
 
