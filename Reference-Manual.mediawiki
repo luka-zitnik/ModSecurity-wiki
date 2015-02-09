@@ -833,7 +833,7 @@ If the @rbl operator uses the dnsbl.httpbl.org RBL (http://www.projecthoneypot.o
 
 '''Version:''' 2.6
 
-When an operator execution fails (ie returns <0), this directive configures how to react.  When set to "Off", the rule is just ignored and the engine will continue executing the rules in phase.  When set to "On", the rule will be just dropped and no more rules will be executed in the same phase, also no interception is made.
+When an operator execution fails, that is it returns <0, this directive configures how to react.  When set to "Off", the rule is just ignored and the engine will continue executing the rules in phase.  When set to "On", the rule will be just dropped and no more rules will be executed in the same phase, also no interception is made.
 
 == SecMarker ==
 '''Description:''' Adds a fixed rule marker that can be used as a target in a skipAfter action. A SecMarker directive essentially creates a rule that does nothing and whose only purpose is to carry the given ID.
