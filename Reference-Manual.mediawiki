@@ -3387,6 +3387,11 @@ Note
 
 After the initialization takes place, the variable SESSIONID will be available for use in the subsequent rules. This action understands application namespaces (configured using SecWebAppId), and will use one if it is configured.
 
+Note
+
+setsid takes an individual variable, not a collection. Variables within an action, such as setsid, use the format [collection].[variable] .
+
+
 == setenv ==
 '''Description:''' Creates, removes, and updates environment variables that can be accessed by Apache.
 
