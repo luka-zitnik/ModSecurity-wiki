@@ -2988,7 +2988,7 @@ Counter values are always positive, meaning that the value will never go below z
 '''Example:''' The following example initiates an IP collection for tracking Basic Authentication attempts. If the client goes over the threshold of more than 25 attempts in 2 minutes, it will DROP subsequent connections.
 <pre>
 SecAction phase:1,id:109,initcol:ip=%{REMOTE_ADDR},nolog
-SecRule ARGS:login "!^$" "nolog,phase:1,id:110,setvar:ip.auth_attempt=+1,deprecatevar:ip.auth_attempt=25/120"
+SecRule ARGS:login "!^$" "nolog,phase:1,id:110,setvar:ip.auth_attempt=+1,deprecatevar:ip.auth_attempt=20/120"
 SecRule IP:AUTH_ATTEMPT "@gt 25" "log,drop,phase:1,id:111,msg:'Possible Brute Force Attack'"
 </pre>
 
