@@ -57,7 +57,7 @@ appcmd.exe uninstall module /module.name:"ModSecurity IIS"
 
 ## Site Configuration
 
-The second part of this IIS configuration is to enable ModSecurity in a site. Note that the first step is need to be accomplished well, otherwise this second step will no be possible. In order to enable ModSecurity, the following commands are used by the installer:
+The second part of this IIS configuration is to enable ModSecurity for a site. Note that the first step must be completed prior to the second step, otherwise it will not be possible. In order to enable ModSecurity, the following commands are used by the installer:
 
 ### Add
 ```
