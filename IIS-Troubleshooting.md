@@ -76,4 +76,15 @@ While running or even during the installation phase, ModSecurityIIS produces val
 During the installation the logs were generated from the MsiInstaller source. After that, at runtime, logs were generated using ModSecurutyIIS as source.
 
 
+# Accessing data on Network Shares
 
+In order to access shares via an IIS configuration file they must included with quad slashes. 
+
+For instance: 
+```
+SecAuditLog \\\\192.168.1.120\test\temp\index2.log
+SecAuditLogStorageDir \\\\192.168.1.120\test\temp
+Include \\\\192.168.1.120\test\temp.conf
+```
+
+Accessing shares via mapped drives does not work.
