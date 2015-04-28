@@ -78,7 +78,7 @@ During the installation the logs were generated from the MsiInstaller source. Af
 
 # Accessing data on Network Shares
 
-In order to access shares via an IIS configuration file they must included with quad slashes. 
+In order to access shares via an IIS ModSecurity configuration file they must included with quad slashes. 
 
 For instance: 
 ```
