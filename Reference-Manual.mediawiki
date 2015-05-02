@@ -86,7 +86,7 @@ http://curl.haxx.se/libcurl/
 ; Note : Many have had issues with libcurl linked with the GnuTLS library for SSL/TLS support. It is recommended that the openssl library be used for SSL/TLS support in libcurl.
 
 == Installation Methods ==
-Before you begin with installation you will need to choose your preferred installation method. First you need to choose whether to install the latest version of ModSecurity directly from CVS (best features, but possibly unstable) or use the latest stable release (recommended). If you choose a stable release, it might be possible to install ModSecurity from binary. It is always possible to compile it from source code.
+Before you begin with installation you will need to choose your preferred installation method. First you need to choose whether to install the latest version of ModSecurity directly from git (best features, but possibly unstable) or use the latest stable release (recommended). If you choose a stable release, it might be possible to install ModSecurity from binary. It is always possible to compile it from source code.
 
 The following few pages will give you more information on benefits of choosing one method over another.
 
