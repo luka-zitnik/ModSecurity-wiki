@@ -543,7 +543,7 @@ You should be aware that the internal chroot feature might not be 100% reliable.
 This directive should be used to make the presence of significant rule sets known. The entire signature will be recorded in the transaction audit log.
 
 == SecConnEngine ==
-'''Description:''' Configures the connections engine. 
+'''Description:''' Configures the connections engine. This directive affect the commands: SecConnReadStateLimit and SecConnWriteStateLimit
 
 '''Syntax:''' <code>SecConnEngine On|Off|DetectionOnly </code>
 
@@ -551,12 +551,12 @@ This directive should be used to make the presence of significant rule sets know
 
 '''Scope:''' Any
 
-'''Version:''' 2.8.0
+'''Version:''' 2.8.0+
 
-Analog to SecRuleEngine, the possible values are: 
-*'''On''': process rules, quietly.
-*'''Off''': do not process rules.
-*'''DetectionOnly''': process rules in verbose mode but never executes any disruptive actions
+Possible values are (Same as SecRuleEngine): 
+*'''On''': process SecConn[Read|Write]StateLimit.
+*'''Off''': Ignore the directives SecConn[Read|Write]StateLimit
+*'''DetectionOnly''': process SecConn[Read|Write]StateLimit definitions in verbose mode but never executes any disruptive actions
 
 == SecContentInjection ==
 '''Description:''' Enables content injection using actions append and prepend. 
