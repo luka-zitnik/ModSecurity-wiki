@@ -191,6 +191,10 @@ In addition the ruleset also hints at the power of ModSecurity beyond providing 
 
 Unfortunately, no. The Core Rules takes advantage of the ModSecurity 2.0 rules language and is therefore not backward compatible.
 
+== I'm getting a 'Failed to resolve operator: detectxss' error while using Core Rule Set (CRS) v3.x ==
+
+You are likely using an older version of ModSecurity. As of ModSecurity 2.8 the @detectXSS operator was added to support libInjection based XSS detection. Unfortunately, many package managers are quite far behind our current release and as a result do not support this feature yet. On these systems there typically exists other repositories or packages that will provide ModSecurity 2.8 or greater. If these are not available, CRS should still function with offending rule(s) commented out. We apologize for the inconvenience.  
+
 == How do I whitelist an IP address so it can pass through ModSecurity? ==
 
 The first issue to realize is that in ModSecurity 2.0, the allow action is only applied to the current phase. This means that if a rule matches in a subsequent phase it may still take a disruptive action. The recommended rule configuration to allow a remote IP address to bypass ModSecurity rules is to do the following (where 192.168.1.100 should be substituted with the desired IP address):
