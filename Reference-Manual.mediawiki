@@ -190,14 +190,22 @@ You should now have ModSecurity 2.x up and running.
 = Installation for NGINX =
 The extensibility model of the nginx server does not include dynamically loaded modules, thus ModSecurity must be compiled with the source code of the main server.  Since nginx is available on multiple Unix-based platforms (and also on Windows), for now the recommended way of obtaining ModSecurity for nginx is compilation in the designated environment.
 == Manually Installing ModSecurity Module on NGINX ==
-The first step in obtaining nginx server with built-in ModSecurity module is building of standalone library containing full ModSecurity with a set of intermediate API (this layer is a common base for IIS version, nginx version, and server-less command line version of ModSecurity). It is recommended to follow the general steps of preparing build environment for ModSecurity and then follow with two simple commands
+The first step in obtaining nginx server with built-in ModSecurity module is building of standalone library containing full ModSecurity with a set of intermediate APIs (this layer is a common base for IIS version, nginx version, and server-less command line version of ModSecurity). First prepare the build environment for ModSecurity and then follow the installation steps below.
+The standalone ModSecurity is located at https://www.modsecurity.org/download.html.
+=== Preinstallation Steps ===
+To build the standalone module from source on a GNU/Linux platform, you need to install the standard and development packages for apache and prce. For example:
+<pre>
+# RHEL/CentOS style install
+sudo yum install httpd httpd-devel pcre pcre-devel
+</pre>
+For details on why compiling ModSecurity for nginx requires these packages, see [https://github.com/SpiderLabs/ModSecurity/issues/603 | issue 603].
 === Installation Steps ===
 1 - Compile standalone module:
 <pre>
 ~/mod_security$ ./configure --enable-standalone-module --disable-mlogc
 ~/mod_security$ make
 </pre>
-
+Note that the path and name of the mod_security folder will differ based on what version and where you download the tarball from [https://www.modsecurity.org/download.html modsecurity.org]. 
 2 - Once the standalone library is built successfully, one can follow with building the nginx server, following the steps from the nginx build tutorial:
 <pre>
 ~/nginx-1.2.0$ ./configure --add-module=../mod_security/nginx/modsecurity
