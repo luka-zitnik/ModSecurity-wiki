@@ -198,15 +198,16 @@ To build the standalone module from source on a GNU/Linux platform, you need to 
 # RHEL/CentOS style install
 sudo yum install httpd httpd-devel pcre pcre-devel
 </pre>
-For details on why compiling ModSecurity for nginx requires these packages, see [https://github.com/SpiderLabs/ModSecurity/issues/603 | issue 603].
+For details on why compiling ModSecurity for nginx requires these packages, see [https://github.com/SpiderLabs/ModSecurity/issues/603  issue 603].
 === Installation Steps ===
-1 - Compile standalone module:
+# - Compile standalone module:
 <pre>
 ~/mod_security$ ./configure --enable-standalone-module --disable-mlogc
 ~/mod_security$ make
 </pre>
 Note that the path and name of the mod_security folder will differ based on what version and where you download the tarball from [https://www.modsecurity.org/download.html modsecurity.org]. 
-2 - Once the standalone library is built successfully, one can follow with building the nginx server, following the steps from the nginx build tutorial:
+
+# - Once the standalone library is built successfully, one can follow with building the nginx server, following the steps from the nginx build tutorial:
 <pre>
 ~/nginx-1.2.0$ ./configure --add-module=../mod_security/nginx/modsecurity
 ~/nginx-1.2.0$ make
