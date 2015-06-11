@@ -3779,6 +3779,8 @@ function main(filename)
 end
 </pre>
 
+; Note : Starting in version 2.9 ModSecurity will not fill the FILES_TMPNAMES variable unless SecTmpSaveUploadedFiles directive is On, or the SecUploadKeepFiles directive is set to RelevantOnly.
+
 '''Reference:''' http://blog.spiderlabs.com/2010/10/advanced-topic-of-the-week-preventing-malicious-pdf-file-uploads.html
 
 == ipMatch ==
