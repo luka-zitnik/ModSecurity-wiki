@@ -3649,6 +3649,8 @@ SecRule REQUEST_BODY "\@fuzzyHash /path/to/ssdeep/hashes.txt 6" "id:192372,log,d
 SecRule &REQUEST_HEADERS_NAMES "@eq 15" "id:153"
 </pre>
 
+; Note : If a value is provided that cannot be converted to an integer (i.e a string) this operator will treat that value as 0.
+
 == ge == 
 '''Description:''' Performs numerical comparison and returns true if the input value is greater than or equal to the provided parameter. Macro expansion is performed on the parameter string before comparison.
 
@@ -3657,6 +3659,8 @@ SecRule &REQUEST_HEADERS_NAMES "@eq 15" "id:153"
 # Detect 15 or more request headers 
 SecRule &REQUEST_HEADERS_NAMES "@ge 15" "id:154"
 </pre>
+
+; Note : If a value is provided that cannot be converted to an integer (i.e a string) this operator will treat that value as 0.
 
 == geoLookup == 
 '''Description:''' Performs a geolocation lookup using the IP address in input against the geolocation database previously configured using SecGeoLookupDb. If the lookup is successful, the obtained information is captured in the GEO collection.
@@ -3701,6 +3705,8 @@ SecRule RESPONSE_BODY "@gsbLookup =\"https?\:\/\/(.*?)\"" "phase:4,id:157,captur
 # Detect more than 15 headers in a request 
 SecRule &REQUEST_HEADERS_NAMES "@gt 15" "id:158"
 </pre>
+
+; Note : If a value is provided that cannot be converted to an integer (i.e a string) this operator will treat that value as 0.
 
 == inspectFile ==
 '''Description:''' Executes an external program for every variable in the target list.  The contents of the variable is provided to the script as the first parameter on the command line. The program must be specified as the first parameter to the operator. As of version 2.5.0, if the supplied program filename is not absolute, it is treated as relative to the directory in which the configuration file resides. Also as of version 2.5.0, if the filename is determined to be a Lua script (based on its .lua extension), the script will be processed by the internal Lua engine. Internally processed scripts will often run faster (there is no process creation overhead) and have full access to the transaction context of ModSecurity.
@@ -3843,6 +3849,8 @@ The file ips.txt may contain:
 SecRule &REQUEST_HEADERS_NAMES "@le 15" "id:164"
 </pre>
 
+; Note : If a value is provided that cannot be converted to an integer (i.e a string) this operator will treat that value as 0.
+
 == lt ==
 '''Description:''' Performs numerical comparison and returns true if the input value is less than to the operator parameter. Macro expansion is performed on the parameter string before comparison.
 
@@ -3851,6 +3859,8 @@ SecRule &REQUEST_HEADERS_NAMES "@le 15" "id:164"
 # Detect fewer than 15 headers in a request 
 SecRule &REQUEST_HEADERS_NAMES "@lt 15" "id:165"
 </pre>
+
+; Note : If a value is provided that cannot be converted to an integer (i.e a string) this operator will treat that value as 0.
 
 == pm ==
 '''Description:''' Performs a case-insensitive match of the provided phrases against the desired input value. The operator uses a set-based matching algorithm (Aho-Corasick), which means that it will match any number of keywords in parallel. When matching of a large number of keywords is needed, this operator performs much better than a regular expression.
