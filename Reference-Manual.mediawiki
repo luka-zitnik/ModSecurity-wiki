@@ -1098,7 +1098,7 @@ This directive is required if you want to inspect the data transported request b
 *Off: do not buffer request bodies
 
 == SecRequestBodyInMemoryLimit ==
-'''Description''': Configures the maximum request body size that ModSecurity will store in mem- ory.
+'''Description''': Configures the maximum request body size that ModSecurity will store in memory.
 
 '''Syntax:''' <code>SecRequestBodyInMemoryLimit LIMIT_IN_BYTES </code>
 
