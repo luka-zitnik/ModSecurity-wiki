@@ -58,7 +58,8 @@ In order to provide generic web applications protection, the CRS use some of the
 == Prerequisites ==
 
 === ModSecurity 2.x works only with Apache 2.0.x or higher ===
-Version 2.2.x is highly recommended.
+The ModSecurity team works hard to ensure that ModSecurity version 2.x will work with all versions of Apache 2.x and higher. If you find incompatibilities on any version (2.2.x, 2.4.x, or 2.6.x) please immediately inform the ModSecurity team
+
 === mod_uniqueid ===
 Make sure you have <code>mod_unique_id</code> installed.
 mod_unique_id is packaged with Apache httpd.
