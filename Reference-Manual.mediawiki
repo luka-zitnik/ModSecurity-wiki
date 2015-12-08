@@ -3788,7 +3788,12 @@ end
 
 ; Note : Starting in version 2.9 ModSecurity will not fill the FILES_TMPNAMES variable unless SecTmpSaveUploadedFiles directive is On, or the SecUploadKeepFiles directive is set to RelevantOnly.
 
+; Note: Use @inspectFile with caution. It may not be safe to use @inspectFile with variables other than FILES_TMPNAMES. Other variables such as "FULL_REQUEST" may contains content that force your platform to fork process out of your control, making possible to an attacker to execute code using the same permissions of your web server. For other variables you may want to look at the Lua script engine. This observation was brought to our attention by "Gryzli", on our users mailing list.
+
+
 '''Reference:''' http://blog.spiderlabs.com/2010/10/advanced-topic-of-the-week-preventing-malicious-pdf-file-uploads.html
+
+'''Reference:''' http://sourceforge.net/p/mod-security/mailman/mod-security-users/?viewmonth=201512
 
 == ipMatch ==
 '''Description:''' Performs a fast ipv4 or ipv6 match of REMOTE_ADDR variable data.  Can handle the following formats:
