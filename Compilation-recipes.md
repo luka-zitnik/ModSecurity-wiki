@@ -19,8 +19,14 @@ Sent by @elialum (See: #1039)
 ### libModSecurity
 
 ```sh
-yum install gcc-c++ flex bison curl-devel curl yajl yajl-devel GeoIP-devel doxygen zlib-devel
+yum install gcc-c++ flex bison curl-devel curl GeoIP-devel doxygen zlib-devel
 cd /opt/
+# Steal Fedora's YAJL and YAJL-devel packages
+wget ftp://195.220.108.108/linux/fedora/linux/releases/23/Everything/x86_64/os/Packages/y/yajl-2.1.0-4.fc23.x86_64.rpm
+rpm -i yajl-2.1.0-4.fc23.x86_64.rpm
+wget ftp://195.220.108.108/linux/fedora/linux/releases/23/Everything/x86_64/os/Packages/y/yajl-devel-2.1.0-4.fc23.x86_64.rpm
+rpm -i yajl-devel-2.1.0-4.fc23.x86_64.rpm
+rm -rf *.rpm
 git clone https://github.com/SpiderLabs/ModSecurity
 cd ModSecurity
 git checkout libmodsecurity
