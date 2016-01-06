@@ -3242,9 +3242,12 @@ SecRule RESPONSE_CONTENT_TYPE ^text/html \ "phase:3,nolog,pass,id:128,prepend:'H
 '''Example:'''
 <pre>
 SecRule REQUEST_HEADERS:User-Agent "Test" log,id:129,proxy:http://honeypothost/
+SecRule REQUEST_URI "@streq /test.txt" "phase:1,proxy:'[nocanon]http://$ENV{SERVER_NAME}:$ENV{SERVER_PORT}/test.txt',id:500005"
 </pre>
 
 For this action to work, mod_proxy must also be installed. This action is useful if you would like to proxy matching requests onto a honeypot web server, and especially in combination with IP address or session tracking.
+
+; Note: As of v2.9.1 (to be released) the proxy action can receive a special parameter named "[nocanon]". The "[nocanon]" parameter will make the url to be delivered to the backend on its original format (raw). Further information about "nocanon" is available here: https://httpd.apache.org/docs/2.2/pt-br/mod/mod_proxy.html.
 
 == redirect ==
 '''Description:''' Intercepts transaction by issuing an external (client-visible) redirection to the given location..
