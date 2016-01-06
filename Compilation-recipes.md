@@ -9,6 +9,7 @@ If your distribution is missing and you manage to compile it, don't forget to ad
 ##### Table of Contents
 
 1. [Centos 7 Minimal](#centos-7-minimal)
+2. [Amazon Linux](#amazon-linux)
 
 
 ## Centos 7 Minimal
@@ -49,7 +50,6 @@ make
 make install
 ```
 
-2. [Amazon Linux](#AWSLinux)
 
 
 ## Amazon Linux
