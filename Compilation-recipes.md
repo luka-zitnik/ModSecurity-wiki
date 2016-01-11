@@ -8,9 +8,9 @@ If your distribution is missing and you manage to compile it, don't forget to ad
 
 ##### Table of Contents
 
-1. [Centos 7 Minimal](#centos-7-minimal)
+1. [CentOS 7 Minimal](#centos-7-minimal)
 2. [Amazon Linux](#amazon-linux)
-
+3. [CentOS 6.x](#centos-6x)
 
 ## Centos 7 Minimal
 
@@ -100,4 +100,36 @@ cd /opt/nginx-1.9.2
 ./configure --add-module=/opt/ModSecurity-nginx 
 make
 make install
+```
+
+## CentOS 6.x
+
+Provided by Sergii Bodnar
+
+### libModSecurity
+
+```sh
+$ cd /opt/
+$ git clone https://github.com/SpiderLabs/ModSecurity
+$ cd ModSecurity
+$ git checkout libmodsecurity
+$ sh build.sh
+$ git submodule init
+$ git submodule update
+$ ./configure
+$ make
+$ make install
+```
+
+### nginx-connector (openresty) 
+
+```sh
+$ cd /opt/
+$ git clone https://github.com/SpiderLabs/ModSecurity-nginx
+$ cd /opt/Modsecurity-nginx
+$ git checkout experimental
+$ cd /opt/
+$ wget https://openresty.org/download/ngx_openresty-1.9.7.1.tar.gz
+$ tar -xvzf ngx_openresty-1.9.7.1.tar.gz
+$ ./configure --add-module=/opt/ModSecurity-nginx
 ```
