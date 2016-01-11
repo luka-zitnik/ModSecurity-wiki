@@ -104,7 +104,7 @@ make install
 
 ## CentOS 6.x
 
-Provided by Sergii Bodnar
+Provided by @moodygit
 
 ### libModSecurity
 
