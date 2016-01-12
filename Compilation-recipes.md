@@ -11,6 +11,7 @@ If your distribution is missing and you manage to compile it, don't forget to ad
 1. [CentOS 7 Minimal](#centos-7-minimal)
 2. [Amazon Linux](#amazon-linux)
 3. [CentOS 6.x](#centos-6x)
+4. [CentOS 6.5](#centos-65-minimal)
 
 ## Centos 7 Minimal
 
