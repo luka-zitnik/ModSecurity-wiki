@@ -227,12 +227,15 @@ make install
 ### nginx-connector (openresty) 
 
 ```sh
-$ cd /opt/
-$ git clone https://github.com/SpiderLabs/ModSecurity-nginx
-$ cd /opt/Modsecurity-nginx
-$ git checkout experimental
-$ cd /opt/
-$ wget https://openresty.org/download/ngx_openresty-1.9.7.1.tar.gz
-$ tar -xvzf ngx_openresty-1.9.7.1.tar.gz
-$ ./configure --add-module=/opt/ModSecurity-nginx
+cd /opt/
+git clone https://github.com/SpiderLabs/ModSecurity-nginx
+cd /opt/ModSecurity-nginx
+git checkout experimental
+cd /opt
+wget http://nginx.org/download/nginx-1.9.2.tar.gz
+tar -xvzf nginx-1.9.2.tar.gz
+cd /opt/nginx-1.9.2
+./configure --add-module=/opt/ModSecurity-nginx 
+make
+make install
 ```
