@@ -395,6 +395,17 @@ Example:
 <pre>SecAuditLogDirMode 02750</pre>
 ; Note : The process umask may still limit the mode if it is being more restrictive than the mode set using this directive.
 
+== SecAuditLogFormat ==
+'''Description:''' Select the output format of the AuditLogs. The format can be either the native AuditLogs format or JSON.
+
+'''Syntax:''' <code>SecAuditLogFormat JSON|Native</code> 
+
+'''Default:''' Native
+
+'''Scope:''' Any 
+
+'''Version:''' 2.9.1 (to be released)
+
 == SecAuditLogFileMode ==
 '''Description:''' Configures the mode (permissions) of any files created for concurrent audit logs using an octal mode (as used in chmod). See SecAuditLogDirMode for controlling the mode of created audit log directories.
 
