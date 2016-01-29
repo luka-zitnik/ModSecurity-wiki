@@ -1,6 +1,3 @@
-
-# Package Generation
-
 It is very common the need for the generation of customized ModSecurity packages. The need for custom package may be a consequence of the need for new version of ModSecurity, that is not yet available on a given distribution. Or a simple need for a version with specifics configurations/build options.
 
 In this Wiki page, we collect information given by the community on how to generate the packages. Including the packages recipes.
