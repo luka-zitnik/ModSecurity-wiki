@@ -216,7 +216,18 @@ Note that the path and name of the mod_security folder will differ based on what
 </pre>
 The last command performs server installation on the local machine, which can be either customized or omitted with built binaries packaged or moved to alternative server.
 === Configuration Steps ===
-The ModSecurity configuration file must be linked in nginx.conf file using the following directives defined by nginx’s ModSecurity extension module:
+The ModSecurity configuration file must be linked in nginx.conf file using the following directives defined by Nginx’s ModSecurity extension module. This configures ModSecurity as an Nginx request handler(The current request flow is:
+request -> modsecurity handler -> backend). The configuration file will look similar to the following:
+<pre>
+location / {
+           ModSecurityEnabled on;
+           ModSecurityConfig modsecurity.conf;
+           proxy_pass http://localhost:8011;
+           proxy_read_timeout 180s;
+       }
+</pre>
+
+'''Note''': Prior to version 2.7.2 Nginx used the ModSecurityPass directive to control proxying connections, this has been removed in favor of the aforementioned version. If you are running ModSecurity 2.7.1 or before your configuration should appear similar to the following: 
 <pre>
 location / {
            ModSecurityEnabled on;
@@ -229,18 +240,8 @@ location @backend {
            proxy_read_timeout 180s;
        }
 </pre>
-This configures ModSecurity as an Nginx request handler. The updated request flow is now:
-request -> modsecurity handler -> backend
-You will need to modify the @backend definition to point to your correct back-end web application that Nginx is proxying to.
-Starting with ModSecurity 2.7.2 the ModSecurityPass option was removed. So the config file looks like:
-<pre>
-location / {
-           ModSecurityEnabled on;
-           ModSecurityConfig modsecurity.conf;
-           proxy_pass http://localhost:8011;
-           proxy_read_timeout 180s;
-       }
-</pre>
+When deploying via this method you will need to modify the @backend definition to point to your correct back-end web application that Nginx is proxying to. Again, Starting with ModSecurity 2.7.2 the ModSecurityPass option was removed.
+
 = Installation for Microsoft IIS =
 Before installing ModSecurity make sure you have Visual Studio 2013 Runtime (vcredist) installed.
 Vcredist can be downloaded here: http://www.visualstudio.com/downloads/download-visual-studio-vs
