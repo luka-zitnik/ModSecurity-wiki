@@ -37,9 +37,9 @@ CFLAGS="-g -O0" ./configure --with-debug ...normal paramanters...
 
 # Running GDB
 
-As defined at GDB's website: "GDB, the GNU Project debugger, allows you to see what is going on `inside' another program while it executes -- or what another program was doing at the moment it crashed." The utilization of GDB is recommended to understand and report ModSecurity crashes. This section are not intend to give an advanced usage guide of GDB, instead, it is just about print the stack trace in a situation where the HTTP server died.
+As defined on GDB's website: "GDB, the GNU Project debugger, allows you to see what is going on `inside' another program while it executes -- or what another program was doing at the moment it crashed." The utilization of GDB is recommended to understand and report ModSecurity crashes. This section is not intend to give an advanced usage guide of GDB, instead, it is just about how print a stack trace in a situation where the HTTP server died.
 
-GDB can be attached to process that are already running or it can be attached in the beginning of the execution. In this document the second option will be explained. The way to get GBD "watching" to a process is very simple: the target binary should be passed as a parameter to GDB, for instance:
+GDB can be attached to process that are already running or it can be attached in the beginning of the execution. In this document the second option will be explained. It is very simple to get GBD to "watch" a process; the target binary should be passed as a parameter to GDB, for instance:
 
 ```
 $ gdb /usr/sbin/apache2
@@ -55,7 +55,7 @@ For bug reporting instructions, please see:
 ...
 ```
 
-Notice that this does not started the target software yet. In order to have it running "run" most be typed in the GDB console. Parameters to the target process are expected to be pasts in the GDB console, as parameters of the command: "run", as demonstrated bellow:
+Notice that this does not start the target software yet. In order to start the software "run" most be typed in the GDB console. Parameters to the target process are expected to be pasts in the GDB console, as parameters of the command: "run", as demonstrated bellow:
 
 ```
 (gdb) run -X
@@ -64,7 +64,7 @@ Starting program: /usr/sbin/apache2 -X
 ...
 ```
 
-After really start the process (after execute the "run" command), the HTTP server should be working as if there is no GDB. The next step is try to reproduce the bug. Once the bug is reproduced the process will crash and so, the GDB command "bt full" can be used to extract information about the crash. Demonstration of all GDB steps can be found bellow:
+After really starting the process (that is, after executing the "run" command), the HTTP server should be working as if there is no GDB. The next step is try to reproduce the bug. Once the bug is reproduced the process will crash and as a result, the GDB command "bt full" can be used to extract information about the crash.A Demonstration of all these steps can be found below:
 
 ```
 (zimmerle@zlinux)-(~/core/spider-modsec/tests)$ gdb /usr/sbin/apache2
