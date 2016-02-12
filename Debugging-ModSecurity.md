@@ -4,15 +4,15 @@ Here we explain some debugging techniques that are applicable to Nginx and Apach
 
 # General debug instructions
 
-Debugging ModSecurity means debugging the HTTP server. ModSecurity works as a server add-on/module/plugin/extension, it is part of the same process id (PID) of the server.
+Debugging ModSecurity means debugging the HTTP server. ModSecurity works as a server add-on/module/plugin/extension, as a result, it is part of the same process ID (PID) of the server.
 
-Before start the debug process, make sure that ModSecurity is compiled with debug parameter (**"-g"** for those who are using gcc). Another gcc parameter that is desired is the **"-O0"**, which will disable the compiler optimization, making the GDB's output more friendly. Independent of the target HTTP server, ModSecurity should be compiled with those special flags. Those flags can be placed during the configuration phase, as following:
+Before starting the debug process, make sure that ModSecurity is compiled with the debugging parameter (**"-g"** for those who are using gcc). Another gcc parameter that is desired is the **"-O0"**, which will disable the compiler optimization, making GDB's output more friendly. Independent of the target HTTP server, ModSecurity should be compiled with those special flags. These flags can be added during the configuration phase, as follows:
 
 ```
 CFLAGS="-g -O0" ./configure ...normal configure parameters...
 ```
 
-It is recommended to keep the debugging process as simple as possible, to do so, eliminate the usage of the multiple threads by the HTTP server is recommended. The instructions on how to disable the threads/workers are dependent on your server, as explained on the sub-sections bellow.
+It is recommended that one keeps the debugging process as simple as possible, to do so, the elimination of features such as multi-threading by the HTTP server is recommended. The instructions on how to disable threads/workers is dependent on your server, as explained on the sub-sections bellow.
 
 ## Apache
 
