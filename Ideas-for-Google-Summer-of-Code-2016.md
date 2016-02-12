@@ -8,5 +8,40 @@
 ###ModSecurity JavaScript support			
 **Brief explanation:** Adding the capability of rapid prototyping to ModSecurity functionalities trough scripts will open the possibility for easy rules production and customization, It also opens the possibility for a large community such as JavaScript developers to create their own customization on the top of ModSecurity and so customize their own rules, analogous of today's Lua support.			
 **Expected results:** An implementation able to handle JavaScripts scripts which will interact to ModSecurity as Lua does.			
-"References:
-- ModSecurity Reference Manual, Lua:https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#wiki-SecRuleScript"			
+**References:**
+- ModSecurity Reference Manual, Lua:https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#wiki-SecRuleScript"	
+
+###ModSecurity connector for node.js			
+**Brief explanation:** As of ModSecurity version 3, ModSecurity is splited into core and connectors. The connector, as the name suggests, create an interface between the webserver (or other ModSecurity comsumer) to the libModSecurity. By create a connector the target application will be able to apply ModSecurity inspections and actions. The idea of this project is to extend node.js to add ModSecurity support to it.			
+Expected results: A connector which will allow ModSecurity to be used inside node.js			
+**References:**
+- ModSecurity version 3.0:
+https://www.trustwave.com/Resources/SpiderLabs-Blog/An-Overview-of-the-Upcoming-libModSecurity/?page=1&year=0&month=0
+- ModSecurity nginx connector:
+https://github.com/SpiderLabs/ModSecurity-nginx"
+
+###ModSecurity connector for Apache			
+**Brief explanation:** As of ModSecurity version 3, ModSecurity is splited into core and connectors. The connector, as the name suggests, create an interface between the webserver (or other ModSecurity comsumer) to the libModSecurity. By create a connector the target application will be able to apply ModSecurity inspections and actions. The idea of this project is to extend Apache to add ModSecurity v3 support to it. Notice: ModSecurity version 2.x is avalable inside Apache, but not v3			
+Expected results: A workable but no feature complete connector which will allow ModSecurity v3 to be used inside Apache			
+**References:**
+- ModSecurity version 3.0:
+https://www.trustwave.com/Resources/SpiderLabs-Blog/An-Overview-of-the-Upcoming-libModSecurity/?page=1&year=0&month=0
+- ModSecurity nginx connector:
+https://github.com/SpiderLabs/ModSecurity-nginx"
+
+
+###ModSecurity Data persistance layer			
+**Brief explanation:** Currently ModSecurity can write audit logs to a file or support logging via a callback function. While this is fantastic if you are building a connector for ModSecurity v3 it doesn't work well if you are an end user. The suggestion is to build a modular system that allows for new persistence layers (mySQL, ElasticSearch, Web Request, File) to be added quickly in  plugin format. The connection details would be supplied by the user via new ModSecurity Directives. This would replace older less extendable methods such as mlogc			
+**Expected results:** An implementation that has hooks for various persistence platforms as well as a few example plugins
+
+###ModSecurity Unicode Correctness			
+**Brief explanation:** Currently ModSecurity has a number of open issues regarding the parsing of Cyrillic characters. It is unclear if this is a problem with how CRS rules are written or the underlying PCRE engine. This project requires investigating how regular expressions with non-ASCII characters should be handled specifically what the ramifications of switching to the Oniguruma, RE2, or other regex platform.			
+**Expected results:** An implementation that can properly handle all unicode characters
+
+###ModSecurityv3 Streaming			
+**Brief explanation:** Currently ModSecurity attempts to buffer whole communications before processing them. The current trend within HTTP (HTTP/2) is to use streams for communication. Switching ModSecurity to this model presents some issues but overall will offer better performance and more future proofing			
+**Expected results:** An implementation that treats HTTP Requests and Responses and streams instead of buffering them	
+
+###ModSecurityv3 IDS connector			
+**Brief explanation:** IDSs like snort support web in a limited way. With the advent of V3 it is possible to put modsecurity into these in a full form. This will allow these other open source projects to leverage a single web parsing framework for better results			
+**Expected results:** An implementation of Snort that supports ModSecurity parsing											
