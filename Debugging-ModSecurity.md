@@ -16,9 +16,9 @@ It is recommended that one keeps the debugging process as simple as possible, to
 
 ## Apache
 
-Apache server accepts an special command line parameter: "-X", that starts the server in debug mode and not detach it from console. This flag should be passed straight to **apache2** or **http** binary, along with other options, such as the configuration file that should be used. The parameter should **not be passed to the apachectl** script, instead, the http/apache2 file should be used directly. If you are using Ubuntu your Apache will probably be at: /usr/sbin/apache2.
+Apache webservers accept a special command line parameter: "-X", that starts the server in debug mode and doesn't detach it from the console. This flag should be passed straight to the **apache2** or **httpd** binary, along with any other options, such as the configuration file that should be used. The parameter should **not be passed to the apachectl** script, instead, the http/apache2 file should be used directly. If you are using Ubuntu your Apache will probably be at: /usr/sbin/apache2. If you are using Fedora this will probably be at: /usr/sbin/httpd.
 
-This setup may affect the behavior of the HTTP server in a way that makes impossible or more hard to reproduce the bug, if it is the case, ask for help in our mailing list and check out the Apache's debugging instructions at: [https://httpd.apache.org/dev/debugging.html](https://httpd.apache.org/dev/debugging.html).
+This setup may affect the behavior of the HTTP server in a way that makes impossible or more difficult to reproduce a given bug, if this is the case, you may wish to ask for help in our mailing list and check out Apache's debugging instructions at: [https://httpd.apache.org/dev/debugging.html](https://httpd.apache.org/dev/debugging.html).
 
 ## Nginx
 
