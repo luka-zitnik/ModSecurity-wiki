@@ -1,10 +1,10 @@
-This page contains information about how to debug ModSecurity. This is not a complete guide or a developer guide, this contains basic information that may help the bug reporting process. Sometimes reproduce problems are not easy due to platform specific stuff or even configurations. It is even worst when log files does not contains specific reference for what is leading ModSecurity to fail (process is killed before log be saved). In that kind of situation it is recommend the utilization of tools such as GDB, which is able to acquire details on the faulty function. 
+This page contains information about how to debug ModSecurity. This is not a complete guide or a developer guide, this contains basic information that may help the bug reporting process. Sometimes reproducing problems is not easy due to platform specific issues or even configurations. It is even worse when log files do not contain a specific reference to what might be leading ModSecurity to fail (process is killed before log is saved for instance). In this kind of situation we recommend the utilization of tools such as GDB, which is able to acquire details on the faulty function. 
 
-In this topic it is explained the debugging techniques that are applicable to Nginx and Apache in a Linux environment. Debugging in other platforms are also possible, however, they are not covered by this specific topic. For more information about IIS, visit the [IIS Troubleshooting guide](https://github.com/SpiderLabs/ModSecurity/wiki/IIS-Troubleshooting). 
+Here we explain some debugging techniques that are applicable to Nginx and Apache in a Linux environment. Debugging in other platforms are is possible, however, they are not covered by this specific post. For more information about IIS, visit the [IIS Troubleshooting guide](https://github.com/SpiderLabs/ModSecurity/wiki/IIS-Troubleshooting). 
 
 # General debug instructions
 
-Debugging ModSecurity means debug the HTTP server. ModSecurity works as a server add-on/plugin/extension, it is part of the same process id (PID) of the server.
+Debugging ModSecurity means debugging the HTTP server. ModSecurity works as a server add-on/module/plugin/extension, it is part of the same process id (PID) of the server.
 
 Before start the debug process, make sure that ModSecurity is compiled with debug parameter (**"-g"** for those who are using gcc). Another gcc parameter that is desired is the **"-O0"**, which will disable the compiler optimization, making the GDB's output more friendly. Independent of the target HTTP server, ModSecurity should be compiled with those special flags. Those flags can be placed during the configuration phase, as following:
 
