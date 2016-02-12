@@ -45,3 +45,10 @@ https://github.com/SpiderLabs/ModSecurity-nginx"
 ###ModSecurityv3 IDS connector			
 **Brief explanation:** IDSs like snort support web in a limited way. With the advent of V3 it is possible to put modsecurity into these in a full form. This will allow these other open source projects to leverage a single web parsing framework for better results			
 **Expected results:** An implementation of Snort that supports ModSecurity parsing											
+
+###ModSecurity Icap Connector
+**Brief explanation:** Adding the capability to connect to a an external malware scanner or content filter via the icap protocol. Antivirus functionality is usually added via the directive @inspectFile, which will then fork a process, or via mod_lua. A proper icap interface would simplify things.
+**Expected results:** An interface / directive to interact with a icap enabled scanner / content filter
+**References:**
+- ICAP (Wikipedia): https://en.wikipedia.org/wiki/Internet_Content_Adaptation_Protocol
+- @inspectFile Anti-Virus connector: http://tinyurl.com/hqf9suo
