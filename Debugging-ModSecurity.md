@@ -22,14 +22,14 @@ This setup may affect the behavior of the HTTP server in a way that makes imposs
 
 ## Nginx
 
-Different from Apache where a parameter is expected to place the server in debugging mode, Nginx expects debugging information on the configuration files. To not detach Nginx from the console, the user can set **daemon** to **off**. Threads can be disabled by having **master_process** set to **off**. As demonstrated bellow:
+Different from Apache where a parameter is expected to place the server in debugging mode, Nginx expects debugging information within the configuration files. To keep Nginx attacked to the console, a user can set **daemon** to **off**. Threads can be disabled by having **master_process** set to **off**. As demonstrated bellow:
 
 ```
 daemon off;
 master_process off;
 ```
 
-By having this demonstration configuration at Nginx' configuration, it will be executed in one single thread and it won't detach from the console. If the problem is not reproducible under those circumstances other techniques can be used as explained at: [http://wiki.nginx.org/Debugging](http://wiki.nginx.org/Debugging). Besides the debugging parameters that should be passed to gcc, it is also recommend to use the option **--with-debug** in the Nginx' configure script. The recommend configuration options are illustrated bellow:
+By having adding a directives similar to the above to Nginx's configuration, it will be executed as a single thread and it won't detach from the console. If the problem is not reproducible under these circumstances other techniques can be used as explained at: [http://wiki.nginx.org/Debugging](http://wiki.nginx.org/Debugging). Besides the debugging parameters that should be passed to gcc, it is also recommend to use the option **--with-debug** in the Nginx's configuration script. The recommended configuration options are illustrated bellow:
 
 ```
 CFLAGS="-g -O0" ./configure --with-debug ...normal paramanters...
