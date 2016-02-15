@@ -233,6 +233,17 @@ location / {
 </pre>
 A recommended sample of modSecurity.conf file can be found in the ModSecurity git repository (https://raw.githubusercontent.com/SpiderLabs/ModSecurity/master/modsecurity.conf-recommended). Note that this file makes a reference to a unicode.mapping file, which is also found in the same repository (https://raw.githubusercontent.com/SpiderLabs/ModSecurity/master/unicode.mapping). 
 
+4. Adding other configuration files (Optional):
+Because Nginx only supports one 'ModSecurityConfig' directive if you want to use a multiple configuration files (for instance OWASP CRS), you simply need to use the 'Include' directive from within the file specified in your 'ModSecurityConfig'. This directive is provided by APR and is not documented in this guide but is simple enough to use. Adding the following at the bottom of modsecurity.conf will include a file from the same directory called test.conf:
+<pre>
+Include test.conf
+</pre>
+The include directive also supports wildcard characters (*) and full paths. It should be easy to add something like the following (assuming CRS has been downloaded and installed to this path):
+<pre>
+Include /opt/owasp-modsecurity-crs/modsecurity_crs_10_setup.conf
+Include /opt/owasp-modsecurity-crs/rules/*.conf
+</pre>
+
 '''Note''': Prior to version 2.7.2 Nginx used the ModSecurityPass directive to control proxying connections, this has been removed in favor of the aforementioned version. If you are running ModSecurity 2.7.1 or before your configuration should appear similar to the following: 
 <pre>
 location / {
