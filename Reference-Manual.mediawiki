@@ -220,7 +220,7 @@ Note that the path and name of the mod_security folder will differ based on what
 </pre>
 The last command performs server installation on the local machine, which can be either customized or omitted with built binaries packaged or moved to alternative server.
 === Configuration Steps ===
-The ModSecurity configuration file must be linked in nginx.conf file using the following directives defined by Nginx’s ModSecurity extension module. This configures ModSecurity as an Nginx request handler(The current request flow is:
+3. The ModSecurity configuration file must be linked in nginx.conf file using the following directives defined by Nginx’s ModSecurity extension module. This configures ModSecurity as an Nginx request handler(The current request flow is:
 request -> modsecurity handler -> backend). The configuration file will look similar to the following:
 <pre>
 location / {
