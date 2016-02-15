@@ -226,10 +226,12 @@ request -> modsecurity handler -> backend). The configuration file will look sim
 location / {
            ModSecurityEnabled on;
            ModSecurityConfig modsecurity.conf;
+           # Only needed if including proxies
            proxy_pass http://localhost:8011;
            proxy_read_timeout 180s;
        }
 </pre>
+A recommended sample of modSecurity.conf file can be found in the ModSecurity git repository (https://raw.githubusercontent.com/SpiderLabs/ModSecurity/master/modsecurity.conf-recommended). Note that this file makes a reference to a unicode.mapping file, which is also found in the same repository (https://raw.githubusercontent.com/SpiderLabs/ModSecurity/master/unicode.mapping). 
 
 '''Note''': Prior to version 2.7.2 Nginx used the ModSecurityPass directive to control proxying connections, this has been removed in favor of the aforementioned version. If you are running ModSecurity 2.7.1 or before your configuration should appear similar to the following: 
 <pre>
