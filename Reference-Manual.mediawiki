@@ -1838,7 +1838,8 @@ ModSecurity 2.x allows rules to be placed in one of the following five phases of
 
 Below is a diagram of the standard Apache Request Cycle. In the diagram, the 5 ModSecurity processing phases are shown.
 
-[[https://blog.spiderlabs.com/.a/6a0133f264aa62970b0133f6519639970b-800wi]]
+[[http://www.modsecurity.org/graphics/modsec-rotation.jpg]]
+
 
 In order to select the phase a rule executes during, use the phase action either directly in the rule or in using the SecDefaultAction directive:
 <pre>
