@@ -197,7 +197,7 @@ The standalone ModSecurity is located at https://www.modsecurity.org/download.ht
 To build the standalone module from source on a GNU/Linux platform, you need to install the standard and development packages for apache and prce. For example:
 <pre>
 # RHEL/CentOS style install
-sudo yum install httpd httpd-devel pcre pcre-devel libxml2-devel
+sudo yum install httpd httpd-devel pcre pcre-devel libxml2-devel (and systemd-devel on newer versions)
 </pre>
 <pre>
 # Debian style install
