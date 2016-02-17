@@ -53,7 +53,7 @@ https://github.com/SpiderLabs/ModSecurity-nginx"
 - ICAP (Wikipedia): https://en.wikipedia.org/wiki/Internet_Content_Adaptation_Protocol
 - @inspectFile Anti-Virus connector: http://tinyurl.com/hqf9suo
 
-###ModSecurity transformation: allow parameters
-**Brief explanation:** Currently, transformations cannot use parameters. This would allow more flexibility.
-**Expected results:** Support parameters
-**Example:** t:encrypt(%{TX.mykey}%)
+###ModSecurity transformation: allow parameters  
+**Brief explanation:** Currently, transformations cannot use parameters. This would allow more flexibility.  
+**Expected results:** Support parameters  
+**Example:** t:encrypt(%{TX.mykey}%)  
