@@ -56,4 +56,15 @@ https://github.com/SpiderLabs/ModSecurity-nginx"
 ###ModSecurity transformation functions: allow parameters  
 **Brief explanation:** Currently, transformations cannot use parameters. This would allow more flexibility.  
 **Expected results:** Support parameters  
-**Example:** t:encrypt(%{TX.mykey}%)  
+t:encrypt(%{TX.mykey}%)  
+
+
+###ModSecurity sub-phases
+**Brief explanation:** ModSecurity supports real phases 1-4 and the 'virtual' one 5. Having intermediate virtual phases, like phase:2.2, would allow to order rules inside a real phase. This is especially useful for configurations integrating rules provided, for example, by a hoster and customs ones.   
+**Expected results:** Rules will be ordered, inside a phase, not only based on their occurence but also based on their sub-phase.  
+**Example:**  
+- SecRule ... phase:2.6,id:1  
+- SecRule ... phase:2,id:2  
+- SecRule ... phase:2.3,id:3  
+Execution order: 2, 3, 1  
+**References:** https://github.com/SpiderLabs/ModSecurity/issues/371
