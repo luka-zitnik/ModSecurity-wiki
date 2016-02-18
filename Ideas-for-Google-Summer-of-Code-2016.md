@@ -71,5 +71,5 @@ Execution order: 2, 3, 1
 
 
 ###ModSecurity Engine-Mode status
-**Brief explanation:** Engine-Mode status is not available for testing nor using (logging, assigning as vale).   
+**Brief explanation:** Engine-Mode status is not available for testing nor using (logging in msg, assigning as value).   
 **Expected results:** A variable "ENGINE-MODE" could be added.  
