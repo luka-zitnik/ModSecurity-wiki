@@ -3912,6 +3912,9 @@ SecRule REQUEST_HEADERS:User-Agent "@pm WebZIP WebCopier Webster WebStripper ...
 
 ; Note : Starting on ModSecurity v2.6.0 this operator supports a snort/suricata content style. ie: "@pm A|42|C|44|F".
 
+; Note : This operator does not support macro expansion (as of ModSecurity v2.9.1).
+
+
 == pmf ==
 Short alias for pmFromFile.
 
