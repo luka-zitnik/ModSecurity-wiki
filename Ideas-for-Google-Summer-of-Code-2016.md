@@ -68,3 +68,8 @@ t:encrypt(%{TX.mykey}%)
 - SecRule ... phase:2,id:2  
 - SecRule ... phase:2.3,id:3  
 Execution order: 2, 3, 1  
+
+
+###ModSecurity Engine-Mode status
+**Brief explanation:** Engine-Mode status is not available for testing nor using (logging, assigning as vale).   
+**Expected results:** A variable "ENGINE-MODE" could be added.  
