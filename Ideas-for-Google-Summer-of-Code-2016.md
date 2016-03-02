@@ -1,4 +1,4 @@
-Below are a number of suggestions for students interested in the ModSecurity project during Google Summer of Code. If you are looking for more information feel free to email security@modsecurity.org, join #Modsecurity on freenode, join the mailing lists, or open a github ticket! We look forward to working with you. 
+Below are a number of suggestions for students interested in the ModSecurity project during Google Summer of Code. These are just suggestions, feel free to submit your own proposal. If you are looking for more information (or just someone to talk to about ideas) feel free to email security [at] modsecurity.org, join #Modsecurity on freenode, join the mailing lists, or open a github ticket! We look forward to working with you. 
 - @csanders-git and @zimmerle
 
 ###ModSecurity Ruby support	
