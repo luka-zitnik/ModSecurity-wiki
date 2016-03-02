@@ -1,3 +1,6 @@
+Below are a number of suggestions for students interested in the ModSecurity project during Google Summer of Code. If you are looking for more information feel free to email security@modsecurity.org, join #Modsecurity on freenode, join the mailing lists, or open a github ticket! We look forward to working with you. 
+- @csanders-git and @zimmerle
+
 ###ModSecurity Ruby support	
 **Brief explanation:** Adding the capability of rapid prototyping to ModSecurity functionalities trough scripts will open the possibility for easy rules production and customization, It also opens the possibility for a large community such as Ruby developers to create their own customization on the top of ModSecurity and so customize their own rules, analogous of today's Lua support.			
 **Expected results:** An implementation able to handle Ruby scripts which will interact to ModSecurity as Lua does.			
