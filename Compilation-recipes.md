@@ -12,6 +12,7 @@ If your distribution is missing and you manage to compile it, don't forget to ad
 2. [Amazon Linux](#amazon-linux)
 3. [CentOS 6.x](#centos-6x)
 4. [CentOS 6.5](#centos-65-minimal)
+5. [Ubuntu 15.04](#ubuntu-15.04)
 
 ## Centos 7 Minimal
 
@@ -238,4 +239,23 @@ cd /opt/nginx-1.9.2
 ./configure --add-module=/opt/ModSecurity-nginx 
 make
 make install
+```
+
+## Ubuntu 15.04
+
+Provided by @m2n and @akoul
+
+### libModSecurity
+
+```sh
+$ sudo apt-get install g++ flex bison curl doxygen libyajl-dev libgeoip-dev libtool dh-autoreconf libcurl4-gnutls-dev libxml2 libpcre++-dev libxml2-dev
+$ cd /opt/
+$ git clone https://github.com/SpiderLabs/ModSecurity
+$ git checkout libmodsecurity
+$ sh build.sh
+$ git submodule init
+$ git submodule update #[for bindings/python, others/libinjection, test/test-cases/secrules-language-tests]
+$ ./configure
+$ make
+$ make install
 ```
