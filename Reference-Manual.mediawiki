@@ -424,7 +424,7 @@ Example:
 
 '''Version:''' 2.9.1 (to be released)
 
-; Note : Notice that the JSON format is only available if ModSecurity was compiled with support to JSON via the YAJL library. During the compilation time, the yajl-dev package (or similar) must be part of the system. The configure scripts provides information if the YAJL support was enabled or not.
+; Note : The JSON format is only available if ModSecurity was compiled with support to JSON via the YAJL library. During the compilation time, the yajl-dev package (or similar) must be part of the system. The configure scripts provides information if the YAJL support was enabled or not.
 
 == SecAuditLogFileMode ==
 '''Description:''' Configures the mode (permissions) of any files created for concurrent audit logs using an octal mode (as used in chmod). See SecAuditLogDirMode for controlling the mode of created audit log directories.
