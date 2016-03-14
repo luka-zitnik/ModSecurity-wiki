@@ -4183,7 +4183,8 @@ A Social Security number is broken up into 3 sections:
 
 '''Example:'''
 <pre>
-# Detect request methods other than GET, POST and HEAD SecRule REQUEST_METHOD "!@within GET,POST,HEAD"
+# Detect request methods other than GET, POST and HEAD 
+SecRule REQUEST_METHOD "!@within GET,POST,HEAD"
 </pre>
 
 = Macro Expansion =
