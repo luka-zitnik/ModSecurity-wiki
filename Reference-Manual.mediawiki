@@ -422,7 +422,7 @@ Example:
 
 '''Scope:''' Any 
 
-'''Version:''' 2.9.1 (to be released)
+'''Version:''' 2.9.1
 
 ; Note : The JSON format is only available if ModSecurity was compiled with support to JSON via the YAJL library. During the compilation time, the yajl-dev package (or similar) must be part of the system. The configure scripts provides information if the YAJL support was enabled or not.
 
@@ -3279,7 +3279,7 @@ SecRule REQUEST_URI "@streq /test.txt" "phase:1,proxy:'[nocanon]http://$ENV{SERV
 
 For this action to work, mod_proxy must also be installed. This action is useful if you would like to proxy matching requests onto a honeypot web server, and especially in combination with IP address or session tracking.
 
-; Note: As of v2.9.1 (to be released) the proxy action can receive a special parameter named "[nocanon]". The "[nocanon]" parameter will make the url to be delivered to the backend on its original format (raw). Further information about "nocanon" is available here: https://httpd.apache.org/docs/2.2/pt-br/mod/mod_proxy.html.
+; Note: As of v2.9.1 the proxy action can receive a special parameter named "[nocanon]". The "[nocanon]" parameter will make the url to be delivered to the backend on its original format (raw). Further information about "nocanon" is available here: https://httpd.apache.org/docs/2.2/pt-br/mod/mod_proxy.html.
 
 == redirect ==
 '''Description:''' Intercepts transaction by issuing an external (client-visible) redirection to the given location..
