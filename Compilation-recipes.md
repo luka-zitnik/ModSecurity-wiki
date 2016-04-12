@@ -38,6 +38,9 @@ make install
 ### nginx connector
 
 ```sh
+# ensure env vars are set
+export MODSECURITY_INC="/opt/ModSecurity/headers/"
+export MODSECURITY_LIB="/opt/ModSecurity/src/.libs/"
 cd /opt/
 git clone https://github.com/SpiderLabs/ModSecurity-nginx
 cd /opt/ModSecurity-nginx
