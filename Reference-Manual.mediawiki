@@ -2310,6 +2310,8 @@ This variable is a collection of the names of all of the request headers.
 
 <code>SecRule REQUEST_HEADERS_NAMES "^x-forwarded-for" "log,deny,id:48,status:403,t:lowercase,msg:'Proxy Server Used'"</code>
 
+; Note: ModSecurity will treat multiple headers that have identical names in accordance with how the webserver treats them. For Apache this means that they will all be concatenated into a single header with a comma as the deliminator. 
+
 == REQUEST_LINE ==
 This variable holds the complete request line sent to the server (including the request method and HTTP version information).
 
