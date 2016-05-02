@@ -119,7 +119,7 @@ To download the stable release go to http://www.modsecurity.org/download/. Binar
 
 *Stop Apache httpd
 *Unpack the ModSecurity archive
-*Build
+*Buildi
 Building differs for UNIX (or UNIX-like) operating systems and Windows.
 === UNIX ===
 Run the configure script to generate a Makefile. Typically no options are needed.
@@ -4203,7 +4203,7 @@ Macro expansion can be used in actions such as initcol, setsid, setuid, setvar, 
 Some values you may want to expand include: TX, REMOTE_ADDR, USERID, HIGHEST_SEVERITY, MATCHED_VAR, MATCHED_VAR_NAME, MULTIPART_STRICT_ERROR, RULE, SESSION, USERID, among others.
 
 = Persistant Storage =
-At this time it is only possible to havefive collections in which data is stored persistantly (i.e. data available to multiple requests). These are: GLOBAL, RESOURCE, IP, SESSION and USER.
+At this time it is only possible to have five collections in which data is stored persistantly (i.e. data available to multiple requests). These are: GLOBAL, RESOURCE, IP, SESSION and USER.
 
 Every collection contains several built-in variables that are available and are read-only unless otherwise specified:
 #'''CREATE_TIME''' - date/time of the creation of the collection.
