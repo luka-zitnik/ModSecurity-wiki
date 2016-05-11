@@ -39,7 +39,7 @@ CFLAGS="-g -O0" ./configure --with-debug ...normal paramanters...
 
 As defined on GDB's website: "GDB, the GNU Project debugger, allows you to see what is going on `inside' another program while it executes -- or what another program was doing at the moment it crashed." The utilization of GDB is recommended to understand and report ModSecurity crashes. This section is not intend to give an advanced usage guide of GDB, instead, it is just about how print a stack trace in a situation where the HTTP server died.
 
-GDB can be attached to process that are already running or it can be attached in the beginning of the execution. In this document the second option will be explained. It is very simple to get GBD to "watch" a process; the target binary should be passed as a parameter to GDB, for instance:
+GDB can be attached to process that are already running or it can be attached in the beginning of the execution. In this document the second option will be explained. It is very simple to get GDB to "watch" a process; the target binary should be passed as a parameter to GDB, for instance:
 
 ```
 $ gdb /usr/sbin/apache2
