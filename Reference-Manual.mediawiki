@@ -1166,7 +1166,7 @@ Anything over the limit will be rejected with status code 413 (Request Entity To
 
 '''Syntax:''' <code>SecRequestBodyNoFilesLimit NUMBER_IN_BYTES </code>
 
-'''Example Usage:''' <code>SecRequestBodyLimit 131072 </code>
+'''Example Usage:''' <code>SecRequestBodyNoFilesLimit 131072 </code>
 
 '''Scope:''' Any 
 
