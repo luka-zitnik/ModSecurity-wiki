@@ -254,8 +254,8 @@ Provided by @m2n and @akoul
 $ sudo apt-get install g++ flex bison curl doxygen libyajl-dev libgeoip-dev libtool dh-autoreconf libcurl4-gnutls-dev libxml2 libpcre++-dev libxml2-dev
 $ cd /opt/
 $ git clone https://github.com/SpiderLabs/ModSecurity
-$ git checkout libmodsecurity
 $ cd ModSecurity/
+$ git checkout libmodsecurity
 $ sh build.sh
 $ git submodule init
 $ git submodule update #[for bindings/python, others/libinjection, test/test-cases/secrules-language-tests]
