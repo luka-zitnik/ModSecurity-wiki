@@ -2674,6 +2674,7 @@ SecRule REQUEST_HEADERS:Authorization "^Basic ([a-zA-Z0-9]+=*)$" "phase:1,id:93,
   SecRule TX:1 ^(\w+): t:base64Decode,capture,chain
     SecRule TX:1 ^(admin|root|backup)$ 
 </pre>
+; Note : Be careful when applying base64Decode with other transformations. The order of your transformation matters in this case as certain transformations may change or invalidate the base64 encoded string prior to being decoded (i.e t:uppercase, t:lowercase). This of course means that it is also very difficult to write a single rule that checks for a base64decoded value OR an unencoded value with transformations, it is best to write two rules in this situation.
 
 == sqlHexDecode ==
 Decode sql hex data. Example (0x414243) will be decoded to (ABC). Available as of 2.6.3
