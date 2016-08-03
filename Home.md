@@ -36,7 +36,6 @@ ModSecurity is an open source, free web application firewall (WAF) Apache module
 -------
 
 # ModSecurity 3
-
 * [[Motivations & Goals | http://blog.zimmerle.org/2016/01/an-overview-of-upcoming-libmodsecurity.html]] (Blog Post)
 * [[Overview of Changes | ModSecurity-version-3-(earlier-release-candidate-1)]]
 
@@ -47,3 +46,5 @@ __Components__
 * [[Apache Connector | https://github.com/SpiderLabs/ModSecurity-apache]]
 * [[Pcap Connector | https://github.com/SpiderLabs/ModSecurity-pcap]]
 * [[Python Bindings | https://github.com/SpiderLabs/ModSecurity-Python-bindings]]
+
+![](http://4.bp.blogspot.com/-yBt4bglIBdU/VpOni6ipQEI/AAAAAAAATmM/v2H1u_w4dIA/s400/6a0133f264aa62970b01b7c7fe12d5970b.png)
