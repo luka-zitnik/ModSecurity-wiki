@@ -37,6 +37,7 @@ ModSecurity is an open source, free web application firewall (WAF) Apache module
 
 # ModSecurity 3
 
+* [[Motivations & Goals | http://blog.zimmerle.org/2016/01/an-overview-of-upcoming-libmodsecurity.html]] (Blog Post)
 * [[Overview of Changes | ModSecurity-version-3-(earlier-release-candidate-1)]]
 
 __Components__
