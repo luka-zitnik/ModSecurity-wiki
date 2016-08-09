@@ -4191,7 +4191,7 @@ A Social Security number is broken up into 3 sections:
 SecRule REQUEST_METHOD "!@within GET,POST,HEAD"
 </pre>
 
-*NOTE:* There are no delimiters for this operator, it is therefore often necessary to artificially impose some; this can be done using setvar. For instance in the example below, without the imposed delimiters (of '/') this rule would also match on the 'range' header (along with many other combinations), since 'range' is within the provided parameter. With the imposed delimiters, the rule would check for '/range/' when the range header is provided, and therefore would not match since '/range/ is not part of the @within parameter.
+;NOTE: There are no delimiters for this operator, it is therefore often necessary to artificially impose some; this can be done using setvar. For instance in the example below, without the imposed delimiters (of '/') this rule would also match on the 'range' header (along with many other combinations), since 'range' is within the provided parameter. With the imposed delimiters, the rule would check for '/range/' when the range header is provided, and therefore would not match since '/range/ is not part of the @within parameter.
 ```
 SecRule REQUEST_HEADERS_NAMES "@rx ^.*$" \
 "chain,\
