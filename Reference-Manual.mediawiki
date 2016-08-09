@@ -4183,13 +4183,25 @@ A Social Security number is broken up into 3 sections:
 *Area code must be different then 666
 
 == within ==
-'''Description:''' Returns true if the input value is found anywhere within the parameter value (the opposite of @contains). Macro expansion is performed on the parameter string before comparison.
+'''Description:''' Returns true if the input value (the needle) is found anywhere within the @within parameter (the haystack). Macro expansion is performed on the parameter string before comparison.
 
 '''Example:'''
 <pre>
 # Detect request methods other than GET, POST and HEAD 
 SecRule REQUEST_METHOD "!@within GET,POST,HEAD"
 </pre>
+
+*NOTE:* There are no delimiters for this operator, it is therefore often necessary to artificially impose some; this can be done using setvar. For instance in the example below, without the imposed delimiters (of '/') this rule would also match on the 'range' header (along with many other combinations), since 'range' is within the provided parameter. With the imposed delimiters, the rule would check for '/range/' when the range header is provided, and therefore would not match since '/range/ is not part of the @within parameter.
+```
+SecRule REQUEST_HEADERS_NAMES "@rx ^.*$" \
+"chain,\
+id:1,\
+block,\
+t:lowercase,\
+setvar:'tx.header_name=/%{tx.0}/'"
+   SecRule TX:header_name "@within /proxy/ /lock-token/ /content-range/ /translate/ /if/" "t:none"
+
+```
 
 = Macro Expansion =
 Macros allow for using place holders in rules that will be expanded out to their values at runtime. Currently only variable expansion is supported, however more options may be added in future versions of ModSecurity.
