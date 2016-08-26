@@ -4045,6 +4045,15 @@ SecRule REQUEST_HEADERS:User-Agent "@strmatch WebZIP" "id:177"
 
 ; Note : Starting on ModSecurity v2.6.0 this operator supports a snort/suricata content style. ie: "@strmatch A|42|C|44|F".
 
+== unconditionalMatch ==
+'''Description:''' Will force the rule to always return true. This is similar to SecAction however all actions that occur as a result of a rule matching will fire such as the setting of MATCHED_VAR. This can also be part a chained rule.
+
+'''Example:'''
+<pre>
+SecRule REMOTE_ADDR "@unconditionalMatch" "id:1000,phase:1,pass,nolog,t:hexEncode,setvar:TX.ip_hash=%{MATCHED_VAR}"
+</pre>
+
+
 == validateByteRange ==
 '''Description:''' Validates that the byte values used in input fall into the range specified by the operator parameter. This operator matches on an input value that contains bytes that are not in the specified range.
 
