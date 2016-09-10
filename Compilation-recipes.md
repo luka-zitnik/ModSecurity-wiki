@@ -25,7 +25,7 @@ yum install gcc-c++ flex bison yajl yajl-devel curl-devel curl GeoIP-devel doxyg
 cd /opt/
 git clone https://github.com/SpiderLabs/ModSecurity
 cd ModSecurity
-git checkout libmodsecurity
+git checkout -b libmodsecurity origin/libmodsecurity
 sh build.sh
 git submodule init
 git submodule update
@@ -44,7 +44,7 @@ export MODSECURITY_LIB="/opt/ModSecurity/src/.libs/"
 cd /opt/
 git clone https://github.com/SpiderLabs/ModSecurity-nginx
 cd /opt/ModSecurity-nginx
-git checkout experimental
+git checkout -b experimental origin/experimental
 cd /opt
 wget http://nginx.org/download/nginx-1.9.2.tar.gz
 tar -xvzf nginx-1.9.2.tar.gz
@@ -82,7 +82,7 @@ rpm -i GeoIP-devel-1.6.6-1.fc23.x86_64.rpm
 rm -rf *.rpm
 git clone https://github.com/SpiderLabs/ModSecurity
 cd ModSecurity
-git checkout libmodsecurity
+git checkout -b libmodsecurity origin/libmodsecurity
 sh build.sh
 git submodule init
 git submodule update
@@ -97,7 +97,7 @@ make install
 cd /opt/
 git clone https://github.com/SpiderLabs/ModSecurity-nginx
 cd /opt/ModSecurity-nginx
-git checkout experimental
+git checkout -b experimental origin/experimental
 cd /opt
 wget http://nginx.org/download/nginx-1.9.2.tar.gz
 tar -xvzf nginx-1.9.2.tar.gz
@@ -117,7 +117,7 @@ Provided by @moodygit
 $ cd /opt/
 $ git clone https://github.com/SpiderLabs/ModSecurity
 $ cd ModSecurity
-$ git checkout libmodsecurity
+$ git checkout -b libmodsecurity origin/libmodsecurity
 $ sh build.sh
 $ git submodule init
 $ git submodule update
@@ -132,7 +132,7 @@ $ make install
 $ cd /opt/
 $ git clone https://github.com/SpiderLabs/ModSecurity-nginx
 $ cd /opt/Modsecurity-nginx
-$ git checkout experimental
+$ git checkout -b experimental origin/experimental
 $ cd /opt/
 $ wget https://openresty.org/download/ngx_openresty-1.9.7.1.tar.gz
 $ tar -xvzf ngx_openresty-1.9.7.1.tar.gz
@@ -219,7 +219,7 @@ rpm -i GeoIP-devel-1.6.6-1.fc23.x86_64.rpm
 yum install -y libxml2-devel doxygen zlib-devel git flex
 git clone https://github.com/csanders-git/ModSecurity
 cd ModSecurity
-git checkout libmodsecurity
+git checkout -b libmodsecurity origin/libmodsecurity
 sh build.sh
 git submodule init
 git submodule update
@@ -234,7 +234,7 @@ make install
 cd /opt/
 git clone https://github.com/SpiderLabs/ModSecurity-nginx
 cd /opt/ModSecurity-nginx
-git checkout experimental
+git checkout -b experimental origin/experimental
 cd /opt
 wget http://nginx.org/download/nginx-1.9.2.tar.gz
 tar -xvzf nginx-1.9.2.tar.gz
@@ -255,7 +255,7 @@ $ sudo apt-get install g++ flex bison curl doxygen libyajl-dev libgeoip-dev libt
 $ cd /opt/
 $ git clone https://github.com/SpiderLabs/ModSecurity
 $ cd ModSecurity/
-$ git checkout libmodsecurity
+$ git checkout -b libmodsecurity origin/libmodsecurity
 $ sh build.sh
 $ git submodule init
 $ git submodule update #[for bindings/python, others/libinjection, test/test-cases/secrules-language-tests]
