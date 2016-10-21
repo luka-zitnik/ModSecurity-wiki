@@ -25,7 +25,7 @@ yum install gcc-c++ flex bison yajl yajl-devel curl-devel curl GeoIP-devel doxyg
 cd /opt/
 git clone https://github.com/SpiderLabs/ModSecurity
 cd ModSecurity
-git checkout -b libmodsecurity origin/libmodsecurity
+git checkout -b v3/master origin/v3/master
 sh build.sh
 git submodule init
 git submodule update
@@ -82,7 +82,7 @@ rpm -i GeoIP-devel-1.6.6-1.fc23.x86_64.rpm
 rm -rf *.rpm
 git clone https://github.com/SpiderLabs/ModSecurity
 cd ModSecurity
-git checkout -b libmodsecurity origin/libmodsecurity
+git checkout -b v3/master origin/v3/master
 sh build.sh
 git submodule init
 git submodule update
@@ -117,7 +117,7 @@ Provided by @moodygit
 $ cd /opt/
 $ git clone https://github.com/SpiderLabs/ModSecurity
 $ cd ModSecurity
-$ git checkout -b libmodsecurity origin/libmodsecurity
+$ git checkout -b v3/master origin/v3/master
 $ sh build.sh
 $ git submodule init
 $ git submodule update
@@ -219,7 +219,7 @@ rpm -i GeoIP-devel-1.6.6-1.fc23.x86_64.rpm
 yum install -y libxml2-devel doxygen zlib-devel git flex
 git clone https://github.com/csanders-git/ModSecurity
 cd ModSecurity
-git checkout -b libmodsecurity origin/libmodsecurity
+git checkout -b v3/master origin/v3/master
 sh build.sh
 git submodule init
 git submodule update
@@ -255,7 +255,7 @@ $ sudo apt-get install g++ flex bison curl doxygen libyajl-dev libgeoip-dev libt
 $ cd /opt/
 $ git clone https://github.com/SpiderLabs/ModSecurity
 $ cd ModSecurity/
-$ git checkout -b libmodsecurity origin/libmodsecurity
+$ git checkout -b v3/master origin/v3/master
 $ sh build.sh
 $ git submodule init
 $ git submodule update #[for bindings/python, others/libinjection, test/test-cases/secrules-language-tests]
