@@ -119,7 +119,7 @@ To download the stable release go to http://www.modsecurity.org/download/. Binar
 
 *Stop Apache httpd
 *Unpack the ModSecurity archive
-*Buildi
+*Build
 Building differs for UNIX (or UNIX-like) operating systems and Windows.
 === UNIX ===
 Run the configure script to generate a Makefile. Typically no options are needed.
