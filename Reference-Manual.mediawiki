@@ -6,7 +6,7 @@
 = Introduction =
 ModSecurity is a web application firewall (WAF). With over 70% of attacks now carried out over the web application level, organisations need all the help they can get in making their systems secure. WAFs are deployed to establish an increased external security layer to detect and/or prevent attacks before they reach web applications. ModSecurity provides protection from a range of attacks against web applications and allows for HTTP traffic monitoring and real-time analysis with little or no changes to existing infrastructure.
 
-== HTTP Traffic Logging ==
+== HTTP Traffic Logging ==SecGsbLookupDb
 Web servers are typically well-equipped to log traffic in a form useful for marketing analyses, but fall short logging traffic to web applications. In particular, most are not capable of logging the request bodies. Your adversaries know this, and that is why most attacks are now carried out via POST requests, rendering your systems blind. ModSecurity makes full HTTP transaction logging possible, allowing complete requests and responses to be logged. Its logging facilities also allow fine-grained decisions to be made about exactly what is logged and when, ensuring only the relevant data is recorded. As some of the request and/or response may contain sensitive data in certain fields, ModSecurity can be configured to mask these fields before they are written to the audit log.
 
 == Real-Time Monitoring and Attack Detection ==
@@ -832,8 +832,7 @@ ModSecurity relies on the free geolocation databases (GeoLite City and GeoLite C
 
 ModSecurity relies on the free Google Safe Browsing database that can be obtained from the Google GSB API [http://code.google.com/apis/safebrowsing/].
 
-; Note : Deprecated in 2.7.0 after Google dev team decided to not allow the database download anymore. After registering and obtaining a Safe Browsing API key, you can automatically download the GSB using a tool like wget (where '''''KEY''''' is your own API key):
-<code>wget http://sb.google.com/safebrowsing/update?client=api&apikey=KEY&version=goog-malware-hash:1:-1</code>
+; Note : Deprecated in 2.7.0 after Google dev team decided to not allow the database download anymore. After registering and obtaining a Safe Browsing API key, you can automatically download the GSB using a tool like wget. For further information on how to proceed with the download, please visit Google's website: https://developers.google.com/safe-browsing/v3/update-guide
 
 == SecGuardianLog ==
 '''Description:''' Configures an external program that will receive the information about every transaction via piped logging.
