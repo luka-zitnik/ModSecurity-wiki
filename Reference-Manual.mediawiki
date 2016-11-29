@@ -3066,7 +3066,7 @@ SecRule REQUEST_COOKIES:JSESSIONID "!^$" "nolog,phase:1,id:114,pass,setsid:%{REQ
 SecRule REQUEST_URI "^/cgi-bin/script\.pl" "phase:2,id:115,t:none,t:lowercase,t:normalisePath,log,allow,setvar:session.suspicious=1,expirevar:session.suspicious=3600,phase:1"
 </pre>
 
-You should use the expirevar actions at the same time that you use setvar actions in order to keep the indented expiration time. If they are used on their own (perhaps in a SecAction directive), the expire time will be reset.
+You should use the expirevar actions at the same time that you use setvar actions in order to keep the intended expiration time. If they are used on their own (perhaps in a SecAction directive), the expire time will be reset.
 
 == id ==
 '''Description''': Assigns a unique ID to the rule or chain in which it appears. Starting with ModSecurity 2.7 this action is mandatory and must be numeric.
