@@ -3655,7 +3655,7 @@ SecRule REQUEST_URI "@detectSQLi" "id:152"
 '''Example:'''
 <pre>
 # Detect XSS Injection inside request body 
-SecRule REQUEST_BODY "\@detectXSS" "id:12345,log,deny"
+SecRule REQUEST_BODY "@detectXSS" "id:12345,log,deny"
 </pre>
 
 == endsWith == 
