@@ -817,7 +817,7 @@ The possible values for TYPE are:
 
 '''Version:''' 2.5.0 
 
-ModSecurity relies on the free geolocation databases (GeoLite City and GeoLite Country) that can be obtained from MaxMind [http://www.maxmind.com].
+ModSecurity relies on the free geolocation databases (GeoLite City and GeoLite Country) that can be obtained from MaxMind [http://www.maxmind.com]. Currently ModSecurity only supports the legacy GeoIP format. Maxmind's newer GeoIP2 format is not yet currently supported. 
 
 == SecGsbLookupDb ==
 '''Description''': Defines the path to the database that will be used for Google Safe Browsing (GSB) lookups. 
