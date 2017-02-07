@@ -2745,16 +2745,24 @@ Looks up the length of the input string in bytes, placing it (as string) in outp
 Converts all characters to lowercase using the current C locale.
 
 == md5 ==
-Calculates an MD5 hash from the data in input. The computed hash is in a raw binary form and may need encoded into text to be printed (or logged). Hash functions are commonly used in combination with hexEncode (for example: t:md5,t:hexEncode).
+Calculates an MD5 hash from the data in input. The computed hash is in a raw binary form and may need encoded into text to be printed (or logged). Hash functions are commonly used in combination with hexEncode (for example: ```t:md5,t:hexEncode```).
  
 == none == 
 Not an actual transformation function, but an instruction to ModSecurity to remove all transformation functions associated with the current rule.
 
 == normalisePath == 
+See normalizePath.
+
+== normalizePath ==
 Removes multiple slashes, directory self-references, and directory back-references (except when at the beginning of the input) from input string.
+; Note : As of 2010 normalisePath has been renamed to normalizePath (MODSEC-103). NormalisePath is kept for backwards compatibility in current versions, but should not be used.
 
 == normalisePathWin == 
-Same as normalisePath, but first converts backslash characters to forward slashes.
+See normalizePathWin.
+
+== normalizePathWin == 
+Same as normalizePath, but first converts backslash characters to forward slashes.
+; Note : As of 2010 normalisePathWin has been renamed to normalizePathWin (MODSEC-103). NormalisePathWin  is kept for backwards compatibility in current versions, but should not be used.
 
 == parityEven7bit == 
 Calculates even parity of 7-bit data replacing the 8th bit of each target byte with the calculated parity bit.
