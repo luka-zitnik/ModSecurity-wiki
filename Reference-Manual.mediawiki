@@ -2745,7 +2745,7 @@ Looks up the length of the input string in bytes, placing it (as string) in outp
 Converts all characters to lowercase using the current C locale.
 
 == md5 ==
-Calculates an MD5 hash from the data in input. The computed hash is in a raw binary form and may need encoded into text to be printed (or logged). Hash functions are commonly used in combination with hexEncode (for example: ```t:md5,t:hexEncode```).
+Calculates an MD5 hash from the data in input. The computed hash is in a raw binary form and may need encoded into text to be printed (or logged). Hash functions are commonly used in combination with hexEncode (for example: t:md5,t:hexEncode).
  
 == none == 
 Not an actual transformation function, but an instruction to ModSecurity to remove all transformation functions associated with the current rule.
