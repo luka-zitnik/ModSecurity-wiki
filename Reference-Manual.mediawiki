@@ -3649,6 +3649,8 @@ Your site has a wide '''select'''ion of computers.
 == detectSQLi == 
 '''Description:''' Returns true if SQL injection payload is found. This operator uses LibInjection to detect SQLi attacks.
 
+'''Version:''' 2.7.4
+
 '''Example:'''
 <pre>
 # Detect SQL Injection inside request uri data" 
