@@ -3471,7 +3471,7 @@ To create a variable and set its value to 1 (usually used for setting flags), us
 
 To create a variable and initialize it at the same time, use: <code>setvar:TX.score=10</code>
 
-To remove a variable prefix the name with exclamation mark, use: <code>setvar:!TX.score</code>
+To remove a variable, prefix the name with an exclamation mark: <code>setvar:!TX.score</code>
 
 To increase or decrease variable value, use + and - characters in front of a numerical value: <code>setvar:TX.score=+5</code>
 
